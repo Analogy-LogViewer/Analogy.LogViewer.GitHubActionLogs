@@ -1,0 +1,1231 @@
+2020-11-27T17:50:01.6518799Z ##[section]Starting: Request a runner to run this job
+2020-11-27T17:50:02.6609869Z Can't find any online and idle self-hosted runner in current repository that matches the required labels: 'ubuntu-latest'
+2020-11-27T17:50:02.6609969Z Can't find any online and idle self-hosted runner in current repository's account/organization that matches the required labels: 'ubuntu-latest'
+2020-11-27T17:50:02.6610155Z Found online and idle hosted runner in current repository's account/organization that matches the required labels: 'ubuntu-latest'
+2020-11-27T17:50:02.8079053Z ##[section]Finishing: Request a runner to run this job
+2020-11-27T17:50:08.8864049Z Current runner version: '2.274.2'
+2020-11-27T17:50:08.8891367Z ##[group]Operating System
+2020-11-27T17:50:08.8892335Z Ubuntu
+2020-11-27T17:50:08.8892766Z 18.04.5
+2020-11-27T17:50:08.8893240Z LTS
+2020-11-27T17:50:08.8893728Z ##[endgroup]
+2020-11-27T17:50:08.8894385Z ##[group]Virtual Environment
+2020-11-27T17:50:08.8895032Z Environment: ubuntu-18.04
+2020-11-27T17:50:08.8895623Z Version: 20201115.1
+2020-11-27T17:50:08.8896633Z Included Software: https://github.com/actions/virtual-environments/blob/ubuntu18/20201115.1/images/linux/Ubuntu1804-README.md
+2020-11-27T17:50:08.8897691Z ##[endgroup]
+2020-11-27T17:50:08.8900693Z Prepare workflow directory
+2020-11-27T17:50:08.9531703Z Prepare all required actions
+2020-11-27T17:50:08.9542721Z Getting action download info
+2020-11-27T17:50:09.2508916Z Download action repository 'actions/checkout@v2'
+2020-11-27T17:50:10.9886679Z Download action repository 'codacy/codacy-analysis-cli-action@1.1.0'
+2020-11-27T17:50:11.3005037Z Download action repository 'github/codeql-action@v1'
+2020-11-27T17:50:15.6734933Z ##[group]Run actions/checkout@v2
+2020-11-27T17:50:15.6735602Z with:
+2020-11-27T17:50:15.6736357Z   repository: Analogy-LogViewer/Analogy.LogViewer
+2020-11-27T17:50:15.6737408Z   token: ***
+2020-11-27T17:50:15.6737822Z   ssh-strict: true
+2020-11-27T17:50:15.6738372Z   persist-credentials: true
+2020-11-27T17:50:15.6738877Z   clean: true
+2020-11-27T17:50:15.6739310Z   fetch-depth: 1
+2020-11-27T17:50:15.6739718Z   lfs: false
+2020-11-27T17:50:15.6740142Z   submodules: false
+2020-11-27T17:50:15.6740576Z ##[endgroup]
+2020-11-27T17:50:16.0951081Z Syncing repository: Analogy-LogViewer/Analogy.LogViewer
+2020-11-27T17:50:16.0952253Z ##[group]Getting Git version info
+2020-11-27T17:50:16.0953639Z Working directory is '/home/runner/work/Analogy.LogViewer/Analogy.LogViewer'
+2020-11-27T17:50:16.0954489Z [command]/usr/bin/git version
+2020-11-27T17:50:16.1274095Z git version 2.29.2
+2020-11-27T17:50:16.1302169Z ##[endgroup]
+2020-11-27T17:50:16.1313653Z Deleting the contents of '/home/runner/work/Analogy.LogViewer/Analogy.LogViewer'
+2020-11-27T17:50:16.1315727Z ##[group]Initializing the repository
+2020-11-27T17:50:16.1319444Z [command]/usr/bin/git init /home/runner/work/Analogy.LogViewer/Analogy.LogViewer
+2020-11-27T17:50:16.1396400Z Initialized empty Git repository in /home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/
+2020-11-27T17:50:16.1409642Z [command]/usr/bin/git remote add origin https://github.com/Analogy-LogViewer/Analogy.LogViewer
+2020-11-27T17:50:16.1457464Z ##[endgroup]
+2020-11-27T17:50:16.1458463Z ##[group]Disabling automatic garbage collection
+2020-11-27T17:50:16.1464599Z [command]/usr/bin/git config --local gc.auto 0
+2020-11-27T17:50:16.1511834Z ##[endgroup]
+2020-11-27T17:50:16.1533874Z ##[group]Setting up auth
+2020-11-27T17:50:16.1534986Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2020-11-27T17:50:16.1574920Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+2020-11-27T17:50:16.1959662Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2020-11-27T17:50:16.2026778Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+2020-11-27T17:50:16.2315854Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2020-11-27T17:50:16.2376417Z ##[endgroup]
+2020-11-27T17:50:16.2377522Z ##[group]Fetching the repository
+2020-11-27T17:50:16.2386281Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +76daf38650e50df112b9b148f2b24eb0c3207f9e:refs/remotes/origin/master
+2020-11-27T17:50:16.5346710Z remote: Enumerating objects: 537, done.        
+2020-11-27T17:50:16.5347754Z remote: Counting objects:   0% (1/537)        
+2020-11-27T17:50:16.5350162Z remote: Counting objects:   1% (6/537)        
+2020-11-27T17:50:16.5351527Z remote: Counting objects:   2% (11/537)        
+2020-11-27T17:50:16.5352354Z remote: Counting objects:   3% (17/537)        
+2020-11-27T17:50:16.5352914Z remote: Counting objects:   4% (22/537)        
+2020-11-27T17:50:16.5353486Z remote: Counting objects:   5% (27/537)        
+2020-11-27T17:50:16.5354100Z remote: Counting objects:   6% (33/537)        
+2020-11-27T17:50:16.5354666Z remote: Counting objects:   7% (38/537)        
+2020-11-27T17:50:16.5355217Z remote: Counting objects:   8% (43/537)        
+2020-11-27T17:50:16.5355782Z remote: Counting objects:   9% (49/537)        
+2020-11-27T17:50:16.5356332Z remote: Counting objects:  10% (54/537)        
+2020-11-27T17:50:16.5356895Z remote: Counting objects:  11% (60/537)        
+2020-11-27T17:50:16.5357450Z remote: Counting objects:  12% (65/537)        
+2020-11-27T17:50:16.5358010Z remote: Counting objects:  13% (70/537)        
+2020-11-27T17:50:16.5358787Z remote: Counting objects:  14% (76/537)        
+2020-11-27T17:50:16.5359383Z remote: Counting objects:  15% (81/537)        
+2020-11-27T17:50:16.5359938Z remote: Counting objects:  16% (86/537)        
+2020-11-27T17:50:16.5360845Z remote: Counting objects:  17% (92/537)        
+2020-11-27T17:50:16.5363744Z remote: Counting objects:  18% (97/537)        
+2020-11-27T17:50:16.5364532Z remote: Counting objects:  19% (103/537)        
+2020-11-27T17:50:16.5365239Z remote: Counting objects:  20% (108/537)        
+2020-11-27T17:50:16.5365955Z remote: Counting objects:  21% (113/537)        
+2020-11-27T17:50:16.5366658Z remote: Counting objects:  22% (119/537)        
+2020-11-27T17:50:16.5396457Z remote: Counting objects:  23% (124/537)        
+2020-11-27T17:50:16.5397581Z remote: Counting objects:  24% (129/537)        
+2020-11-27T17:50:16.5399369Z remote: Counting objects:  25% (135/537)        
+2020-11-27T17:50:16.5399944Z remote: Counting objects:  26% (140/537)        
+2020-11-27T17:50:16.5400533Z remote: Counting objects:  27% (145/537)        
+2020-11-27T17:50:16.5401096Z remote: Counting objects:  28% (151/537)        
+2020-11-27T17:50:16.5401660Z remote: Counting objects:  29% (156/537)        
+2020-11-27T17:50:16.5402218Z remote: Counting objects:  30% (162/537)        
+2020-11-27T17:50:16.5402787Z remote: Counting objects:  31% (167/537)        
+2020-11-27T17:50:16.5403491Z remote: Counting objects:  32% (172/537)        
+2020-11-27T17:50:16.5404059Z remote: Counting objects:  33% (178/537)        
+2020-11-27T17:50:16.5404859Z remote: Counting objects:  34% (183/537)        
+2020-11-27T17:50:16.5405581Z remote: Counting objects:  35% (188/537)        
+2020-11-27T17:50:16.5406136Z remote: Counting objects:  36% (194/537)        
+2020-11-27T17:50:16.5406702Z remote: Counting objects:  37% (199/537)        
+2020-11-27T17:50:16.5407259Z remote: Counting objects:  38% (205/537)        
+2020-11-27T17:50:16.5409308Z remote: Counting objects:  39% (210/537)        
+2020-11-27T17:50:16.5409888Z remote: Counting objects:  40% (215/537)        
+2020-11-27T17:50:16.5410460Z remote: Counting objects:  41% (221/537)        
+2020-11-27T17:50:16.5411015Z remote: Counting objects:  42% (226/537)        
+2020-11-27T17:50:16.5411629Z remote: Counting objects:  43% (231/537)        
+2020-11-27T17:50:16.5412187Z remote: Counting objects:  44% (237/537)        
+2020-11-27T17:50:16.5412754Z remote: Counting objects:  45% (242/537)        
+2020-11-27T17:50:16.5413309Z remote: Counting objects:  46% (248/537)        
+2020-11-27T17:50:16.5413879Z remote: Counting objects:  47% (253/537)        
+2020-11-27T17:50:16.5414434Z remote: Counting objects:  48% (258/537)        
+2020-11-27T17:50:16.5415005Z remote: Counting objects:  49% (264/537)        
+2020-11-27T17:50:16.5415560Z remote: Counting objects:  50% (269/537)        
+2020-11-27T17:50:16.5416130Z remote: Counting objects:  51% (274/537)        
+2020-11-27T17:50:16.5416684Z remote: Counting objects:  52% (280/537)        
+2020-11-27T17:50:16.5417261Z remote: Counting objects:  53% (285/537)        
+2020-11-27T17:50:16.5417992Z remote: Counting objects:  54% (290/537)        
+2020-11-27T17:50:16.5418559Z remote: Counting objects:  55% (296/537)        
+2020-11-27T17:50:16.5419112Z remote: Counting objects:  56% (301/537)        
+2020-11-27T17:50:16.5419683Z remote: Counting objects:  57% (307/537)        
+2020-11-27T17:50:16.5420257Z remote: Counting objects:  58% (312/537)        
+2020-11-27T17:50:16.5420815Z remote: Counting objects:  59% (317/537)        
+2020-11-27T17:50:16.5421384Z remote: Counting objects:  60% (323/537)        
+2020-11-27T17:50:16.5421938Z remote: Counting objects:  61% (328/537)        
+2020-11-27T17:50:16.5422506Z remote: Counting objects:  62% (333/537)        
+2020-11-27T17:50:16.5423064Z remote: Counting objects:  63% (339/537)        
+2020-11-27T17:50:16.5423629Z remote: Counting objects:  64% (344/537)        
+2020-11-27T17:50:16.5424177Z remote: Counting objects:  65% (350/537)        
+2020-11-27T17:50:16.5424827Z remote: Counting objects:  66% (355/537)        
+2020-11-27T17:50:16.5425392Z remote: Counting objects:  67% (360/537)        
+2020-11-27T17:50:16.5425961Z remote: Counting objects:  68% (366/537)        
+2020-11-27T17:50:16.5426513Z remote: Counting objects:  69% (371/537)        
+2020-11-27T17:50:16.5427082Z remote: Counting objects:  70% (376/537)        
+2020-11-27T17:50:16.5427638Z remote: Counting objects:  71% (382/537)        
+2020-11-27T17:50:16.5428205Z remote: Counting objects:  72% (387/537)        
+2020-11-27T17:50:16.5428757Z remote: Counting objects:  73% (393/537)        
+2020-11-27T17:50:16.5429326Z remote: Counting objects:  74% (398/537)        
+2020-11-27T17:50:16.5429880Z remote: Counting objects:  75% (403/537)        
+2020-11-27T17:50:16.5430442Z remote: Counting objects:  76% (409/537)        
+2020-11-27T17:50:16.5430994Z remote: Counting objects:  77% (414/537)        
+2020-11-27T17:50:16.5431561Z remote: Counting objects:  78% (419/537)        
+2020-11-27T17:50:16.5432119Z remote: Counting objects:  79% (425/537)        
+2020-11-27T17:50:16.5432696Z remote: Counting objects:  80% (430/537)        
+2020-11-27T17:50:16.5433248Z remote: Counting objects:  81% (435/537)        
+2020-11-27T17:50:16.5433813Z remote: Counting objects:  82% (441/537)        
+2020-11-27T17:50:16.5434364Z remote: Counting objects:  83% (446/537)        
+2020-11-27T17:50:16.5434933Z remote: Counting objects:  84% (452/537)        
+2020-11-27T17:50:16.5435485Z remote: Counting objects:  85% (457/537)        
+2020-11-27T17:50:16.5436101Z remote: Counting objects:  86% (462/537)        
+2020-11-27T17:50:16.5436655Z remote: Counting objects:  87% (468/537)        
+2020-11-27T17:50:16.5437222Z remote: Counting objects:  88% (473/537)        
+2020-11-27T17:50:16.5437775Z remote: Counting objects:  89% (478/537)        
+2020-11-27T17:50:16.5438342Z remote: Counting objects:  90% (484/537)        
+2020-11-27T17:50:16.5438896Z remote: Counting objects:  91% (489/537)        
+2020-11-27T17:50:16.5439463Z remote: Counting objects:  92% (495/537)        
+2020-11-27T17:50:16.5440026Z remote: Counting objects:  93% (500/537)        
+2020-11-27T17:50:16.5440593Z remote: Counting objects:  94% (505/537)        
+2020-11-27T17:50:16.5441150Z remote: Counting objects:  95% (511/537)        
+2020-11-27T17:50:16.5441737Z remote: Counting objects:  96% (516/537)        
+2020-11-27T17:50:16.5442309Z remote: Counting objects:  97% (521/537)        
+2020-11-27T17:50:16.5442863Z remote: Counting objects:  98% (527/537)        
+2020-11-27T17:50:16.5443427Z remote: Counting objects:  99% (532/537)        
+2020-11-27T17:50:16.5443979Z remote: Counting objects: 100% (537/537)        
+2020-11-27T17:50:16.5444574Z remote: Counting objects: 100% (537/537), done.        
+2020-11-27T17:50:16.5459032Z remote: Compressing objects:   0% (1/495)        
+2020-11-27T17:50:16.5619199Z remote: Compressing objects:   1% (5/495)        
+2020-11-27T17:50:16.5717494Z remote: Compressing objects:   2% (10/495)        
+2020-11-27T17:50:16.5818585Z remote: Compressing objects:   3% (15/495)        
+2020-11-27T17:50:16.5819603Z remote: Compressing objects:   4% (20/495)        
+2020-11-27T17:50:16.5823887Z remote: Compressing objects:   5% (25/495)        
+2020-11-27T17:50:16.5848288Z remote: Compressing objects:   6% (30/495)        
+2020-11-27T17:50:16.5849421Z remote: Compressing objects:   7% (35/495)        
+2020-11-27T17:50:16.5851233Z remote: Compressing objects:   8% (40/495)        
+2020-11-27T17:50:16.5868814Z remote: Compressing objects:   9% (45/495)        
+2020-11-27T17:50:16.5876688Z remote: Compressing objects:  10% (50/495)        
+2020-11-27T17:50:16.5888771Z remote: Compressing objects:  11% (55/495)        
+2020-11-27T17:50:16.5895893Z remote: Compressing objects:  12% (60/495)        
+2020-11-27T17:50:16.5917978Z remote: Compressing objects:  13% (65/495)        
+2020-11-27T17:50:16.5946843Z remote: Compressing objects:  14% (70/495)        
+2020-11-27T17:50:16.5979067Z remote: Compressing objects:  15% (75/495)        
+2020-11-27T17:50:16.6070105Z remote: Compressing objects:  16% (80/495)        
+2020-11-27T17:50:16.6089761Z remote: Compressing objects:  17% (85/495)        
+2020-11-27T17:50:16.6116113Z remote: Compressing objects:  18% (90/495)        
+2020-11-27T17:50:16.6170757Z remote: Compressing objects:  19% (95/495)        
+2020-11-27T17:50:16.6208591Z remote: Compressing objects:  20% (99/495)        
+2020-11-27T17:50:16.6276268Z remote: Compressing objects:  21% (104/495)        
+2020-11-27T17:50:16.6285777Z remote: Compressing objects:  22% (109/495)        
+2020-11-27T17:50:16.6327549Z remote: Compressing objects:  23% (114/495)        
+2020-11-27T17:50:16.6352264Z remote: Compressing objects:  24% (119/495)        
+2020-11-27T17:50:16.6378971Z remote: Compressing objects:  25% (124/495)        
+2020-11-27T17:50:16.6383284Z remote: Compressing objects:  26% (129/495)        
+2020-11-27T17:50:16.6390604Z remote: Compressing objects:  27% (134/495)        
+2020-11-27T17:50:16.6400854Z remote: Compressing objects:  28% (139/495)        
+2020-11-27T17:50:16.6404865Z remote: Compressing objects:  29% (144/495)        
+2020-11-27T17:50:16.6408442Z remote: Compressing objects:  30% (149/495)        
+2020-11-27T17:50:16.6427815Z remote: Compressing objects:  31% (154/495)        
+2020-11-27T17:50:16.6480247Z remote: Compressing objects:  32% (159/495)        
+2020-11-27T17:50:16.6481929Z remote: Compressing objects:  33% (164/495)        
+2020-11-27T17:50:16.6484583Z remote: Compressing objects:  34% (169/495)        
+2020-11-27T17:50:16.6485215Z remote: Compressing objects:  35% (174/495)        
+2020-11-27T17:50:16.6485840Z remote: Compressing objects:  36% (179/495)        
+2020-11-27T17:50:16.6495672Z remote: Compressing objects:  37% (184/495)        
+2020-11-27T17:50:16.6501155Z remote: Compressing objects:  38% (189/495)        
+2020-11-27T17:50:16.6502197Z remote: Compressing objects:  39% (194/495)        
+2020-11-27T17:50:16.6535664Z remote: Compressing objects:  40% (198/495)        
+2020-11-27T17:50:16.6590050Z remote: Compressing objects:  41% (203/495)        
+2020-11-27T17:50:16.6676934Z remote: Compressing objects:  42% (208/495)        
+2020-11-27T17:50:17.2207205Z remote: Compressing objects:  43% (213/495)        
+2020-11-27T17:50:17.8475471Z remote: Compressing objects:  44% (218/495)        
+2020-11-27T17:50:18.3560057Z remote: Compressing objects:  44% (221/495)        
+2020-11-27T17:50:18.6219333Z remote: Compressing objects:  45% (223/495)        
+2020-11-27T17:50:19.4054652Z remote: Compressing objects:  46% (228/495)        
+2020-11-27T17:50:19.8110877Z remote: Compressing objects:  47% (233/495)        
+2020-11-27T17:50:20.6526295Z remote: Compressing objects:  47% (235/495)        
+2020-11-27T17:50:20.6527355Z remote: Compressing objects:  48% (238/495)        
+2020-11-27T17:50:21.6880104Z remote: Compressing objects:  48% (239/495)        
+2020-11-27T17:50:22.0171202Z remote: Compressing objects:  48% (241/495)        
+2020-11-27T17:50:22.9610828Z remote: Compressing objects:  49% (243/495)        
+2020-11-27T17:50:23.3890592Z remote: Compressing objects:  49% (244/495)        
+2020-11-27T17:50:23.5540086Z remote: Compressing objects:  50% (248/495)        
+2020-11-27T17:50:23.6337683Z remote: Compressing objects:  50% (252/495)        
+2020-11-27T17:50:23.9202100Z remote: Compressing objects:  51% (253/495)        
+2020-11-27T17:50:24.2491296Z remote: Compressing objects:  52% (258/495)        
+2020-11-27T17:50:24.2522329Z remote: Compressing objects:  53% (263/495)        
+2020-11-27T17:50:24.2523209Z remote: Compressing objects:  54% (268/495)        
+2020-11-27T17:50:24.2524056Z remote: Compressing objects:  55% (273/495)        
+2020-11-27T17:50:24.2524874Z remote: Compressing objects:  56% (278/495)        
+2020-11-27T17:50:24.2535227Z remote: Compressing objects:  57% (283/495)        
+2020-11-27T17:50:24.2535915Z remote: Compressing objects:  58% (288/495)        
+2020-11-27T17:50:24.2536565Z remote: Compressing objects:  59% (293/495)        
+2020-11-27T17:50:24.2537472Z remote: Compressing objects:  60% (297/495)        
+2020-11-27T17:50:24.2550848Z remote: Compressing objects:  61% (302/495)        
+2020-11-27T17:50:24.2551629Z remote: Compressing objects:  62% (307/495)        
+2020-11-27T17:50:24.2552320Z remote: Compressing objects:  63% (312/495)        
+2020-11-27T17:50:24.2751714Z remote: Compressing objects:  64% (317/495)        
+2020-11-27T17:50:24.2752492Z remote: Compressing objects:  65% (322/495)        
+2020-11-27T17:50:24.2753244Z remote: Compressing objects:  66% (327/495)        
+2020-11-27T17:50:24.2753979Z remote: Compressing objects:  67% (332/495)        
+2020-11-27T17:50:24.2754718Z remote: Compressing objects:  68% (337/495)        
+2020-11-27T17:50:24.2755445Z remote: Compressing objects:  69% (342/495)        
+2020-11-27T17:50:24.2756187Z remote: Compressing objects:  70% (347/495)        
+2020-11-27T17:50:24.2756979Z remote: Compressing objects:  71% (352/495)        
+2020-11-27T17:50:24.2757727Z remote: Compressing objects:  72% (357/495)        
+2020-11-27T17:50:24.2758449Z remote: Compressing objects:  73% (362/495)        
+2020-11-27T17:50:24.2759216Z remote: Compressing objects:  74% (367/495)        
+2020-11-27T17:50:24.2759943Z remote: Compressing objects:  75% (372/495)        
+2020-11-27T17:50:24.2760688Z remote: Compressing objects:  76% (377/495)        
+2020-11-27T17:50:24.2761411Z remote: Compressing objects:  77% (382/495)        
+2020-11-27T17:50:24.2762231Z remote: Compressing objects:  78% (387/495)        
+2020-11-27T17:50:24.2762955Z remote: Compressing objects:  79% (392/495)        
+2020-11-27T17:50:24.2763692Z remote: Compressing objects:  80% (396/495)        
+2020-11-27T17:50:24.2764418Z remote: Compressing objects:  81% (401/495)        
+2020-11-27T17:50:24.2765152Z remote: Compressing objects:  82% (406/495)        
+2020-11-27T17:50:24.2765883Z remote: Compressing objects:  83% (411/495)        
+2020-11-27T17:50:24.2766619Z remote: Compressing objects:  84% (416/495)        
+2020-11-27T17:50:24.2767336Z remote: Compressing objects:  85% (421/495)        
+2020-11-27T17:50:24.2768252Z remote: Compressing objects:  86% (426/495)        
+2020-11-27T17:50:24.2768984Z remote: Compressing objects:  87% (431/495)        
+2020-11-27T17:50:24.2769728Z remote: Compressing objects:  88% (436/495)        
+2020-11-27T17:50:24.2770486Z remote: Compressing objects:  89% (441/495)        
+2020-11-27T17:50:24.2771222Z remote: Compressing objects:  90% (446/495)        
+2020-11-27T17:50:24.2771948Z remote: Compressing objects:  91% (451/495)        
+2020-11-27T17:50:24.2873030Z remote: Compressing objects:  92% (456/495)        
+2020-11-27T17:50:24.2878707Z remote: Compressing objects:  93% (461/495)        
+2020-11-27T17:50:24.2879312Z remote: Compressing objects:  94% (466/495)        
+2020-11-27T17:50:24.2879904Z remote: Compressing objects:  95% (471/495)        
+2020-11-27T17:50:24.2890661Z remote: Compressing objects:  96% (476/495)        
+2020-11-27T17:50:24.2891285Z remote: Compressing objects:  97% (481/495)        
+2020-11-27T17:50:24.2891862Z remote: Compressing objects:  98% (486/495)        
+2020-11-27T17:50:24.2892659Z remote: Compressing objects:  99% (491/495)        
+2020-11-27T17:50:24.2893446Z remote: Compressing objects: 100% (495/495)        
+2020-11-27T17:50:24.2894575Z remote: Compressing objects: 100% (495/495), done.        
+2020-11-27T17:50:24.2932423Z Receiving objects:   0% (1/537)
+2020-11-27T17:50:24.2932972Z Receiving objects:   1% (6/537)
+2020-11-27T17:50:24.2955518Z Receiving objects:   2% (11/537)
+2020-11-27T17:50:24.2956204Z Receiving objects:   3% (17/537)
+2020-11-27T17:50:24.2976303Z Receiving objects:   4% (22/537)
+2020-11-27T17:50:24.2976803Z Receiving objects:   5% (27/537)
+2020-11-27T17:50:24.2977291Z Receiving objects:   6% (33/537)
+2020-11-27T17:50:25.2138561Z Receiving objects:   7% (38/537)
+2020-11-27T17:50:25.7143550Z Receiving objects:   8% (43/537), 52.00 KiB | 52.00 KiB/s
+2020-11-27T17:50:26.1538791Z Receiving objects:   8% (48/537), 6.48 MiB | 4.56 MiB/s  
+2020-11-27T17:50:26.4833443Z Receiving objects:   9% (49/537), 6.48 MiB | 4.56 MiB/s
+2020-11-27T17:50:26.9026619Z Receiving objects:   9% (51/537), 18.73 MiB | 9.75 MiB/s
+2020-11-27T17:50:27.3686430Z Receiving objects:  10% (54/537), 21.16 MiB | 8.53 MiB/s
+2020-11-27T17:50:27.4721537Z Receiving objects:  10% (58/537), 30.39 MiB | 9.89 MiB/s
+2020-11-27T17:50:28.6549776Z Receiving objects:  11% (60/537), 30.39 MiB | 9.89 MiB/s
+2020-11-27T17:50:28.6880104Z Receiving objects:  11% (64/537), 33.04 MiB | 8.52 MiB/s
+2020-11-27T17:50:29.0404056Z Receiving objects:  12% (65/537), 42.21 MiB | 9.64 MiB/s
+2020-11-27T17:50:29.5719974Z Receiving objects:  13% (70/537), 42.21 MiB | 9.64 MiB/s
+2020-11-27T17:50:30.3116434Z Receiving objects:  13% (72/537), 46.88 MiB | 9.40 MiB/s
+2020-11-27T17:50:30.3903449Z Receiving objects:  13% (75/537), 49.57 MiB | 8.73 MiB/s
+2020-11-27T17:50:30.6008887Z Receiving objects:  14% (76/537), 49.57 MiB | 8.73 MiB/s
+2020-11-27T17:50:30.9952087Z Receiving objects:  15% (81/537), 54.71 MiB | 10.25 MiB/s
+2020-11-27T17:50:31.2471714Z Receiving objects:  16% (86/537), 54.71 MiB | 10.25 MiB/s
+2020-11-27T17:50:31.2957434Z Receiving objects:  17% (92/537), 57.05 MiB | 9.47 MiB/s 
+2020-11-27T17:50:31.3696539Z Receiving objects:  17% (94/537), 57.05 MiB | 9.47 MiB/s
+2020-11-27T17:50:31.6406961Z Receiving objects:  18% (97/537), 57.05 MiB | 9.47 MiB/s
+2020-11-27T17:50:31.7811668Z Receiving objects:  19% (103/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7813763Z Receiving objects:  20% (108/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7836886Z Receiving objects:  21% (113/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7844166Z Receiving objects:  22% (119/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7850461Z Receiving objects:  23% (124/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7853294Z Receiving objects:  24% (129/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7859789Z Receiving objects:  25% (135/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7864598Z Receiving objects:  26% (140/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7865539Z Receiving objects:  27% (145/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7915535Z Receiving objects:  28% (151/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7917203Z Receiving objects:  29% (156/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7918695Z Receiving objects:  30% (162/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7925776Z Receiving objects:  31% (167/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7927069Z Receiving objects:  32% (172/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7928084Z Receiving objects:  33% (178/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7928978Z Receiving objects:  34% (183/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7930658Z Receiving objects:  35% (188/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7931510Z Receiving objects:  36% (194/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7932481Z Receiving objects:  37% (199/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7947477Z Receiving objects:  38% (205/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7959667Z Receiving objects:  39% (210/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.7969770Z Receiving objects:  40% (215/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8024137Z Receiving objects:  41% (221/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8024807Z Receiving objects:  42% (226/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8086189Z Receiving objects:  43% (231/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8149700Z Receiving objects:  44% (237/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8170106Z Receiving objects:  45% (242/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8519303Z Receiving objects:  46% (248/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8520049Z Receiving objects:  47% (253/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8600870Z Receiving objects:  48% (258/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8602112Z Receiving objects:  49% (264/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8603331Z Receiving objects:  50% (269/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8604564Z Receiving objects:  51% (274/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8605857Z Receiving objects:  52% (280/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8606420Z Receiving objects:  53% (285/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8607622Z Receiving objects:  54% (290/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8608925Z Receiving objects:  55% (296/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8609575Z Receiving objects:  56% (301/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8610702Z Receiving objects:  57% (307/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8636540Z Receiving objects:  58% (312/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8637645Z Receiving objects:  59% (317/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8652076Z Receiving objects:  60% (323/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8652754Z Receiving objects:  61% (328/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8662135Z Receiving objects:  62% (333/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8677575Z Receiving objects:  63% (339/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8688729Z Receiving objects:  64% (344/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8690104Z Receiving objects:  65% (350/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8702596Z Receiving objects:  66% (355/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8715074Z Receiving objects:  67% (360/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8715716Z Receiving objects:  68% (366/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8746595Z Receiving objects:  69% (371/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8747239Z Receiving objects:  70% (376/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8747779Z Receiving objects:  71% (382/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8749888Z Receiving objects:  72% (387/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8752569Z Receiving objects:  73% (393/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8758246Z Receiving objects:  74% (398/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8762628Z Receiving objects:  75% (403/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8812974Z Receiving objects:  76% (409/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8823653Z Receiving objects:  77% (414/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8866512Z Receiving objects:  78% (419/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8877327Z Receiving objects:  79% (425/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8903791Z Receiving objects:  80% (430/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8941764Z Receiving objects:  81% (435/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8948809Z Receiving objects:  82% (441/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8951781Z Receiving objects:  83% (446/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:31.8984585Z Receiving objects:  84% (452/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:32.0833709Z Receiving objects:  85% (457/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:32.1242326Z Receiving objects:  86% (462/537), 65.21 MiB | 8.66 MiB/s
+2020-11-27T17:50:32.1273948Z Receiving objects:  87% (468/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1476210Z Receiving objects:  88% (473/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1480467Z Receiving objects:  89% (478/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1487338Z Receiving objects:  90% (484/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1523473Z Receiving objects:  91% (489/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1536169Z Receiving objects:  92% (495/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1573684Z Receiving objects:  93% (500/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1592409Z Receiving objects:  94% (505/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1594528Z Receiving objects:  95% (511/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1605641Z Receiving objects:  96% (516/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1609214Z Receiving objects:  97% (521/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1612112Z Receiving objects:  98% (527/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1613678Z remote: Total 537 (delta 134), reused 282 (delta 39), pack-reused 0        
+2020-11-27T17:50:32.1625099Z Receiving objects:  99% (532/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1625903Z Receiving objects: 100% (537/537), 73.77 MiB | 9.91 MiB/s
+2020-11-27T17:50:32.1626845Z Receiving objects: 100% (537/537), 77.66 MiB | 9.87 MiB/s, done.
+2020-11-27T17:50:32.2585567Z Resolving deltas:   0% (0/134)
+2020-11-27T17:50:32.3242284Z Resolving deltas:   1% (2/134)
+2020-11-27T17:50:32.3644947Z Resolving deltas:   2% (3/134)
+2020-11-27T17:50:32.3687425Z Resolving deltas:   3% (5/134)
+2020-11-27T17:50:32.3721587Z Resolving deltas:   4% (6/134)
+2020-11-27T17:50:32.3758244Z Resolving deltas:   5% (7/134)
+2020-11-27T17:50:32.4383050Z Resolving deltas:   6% (9/134)
+2020-11-27T17:50:32.4959119Z Resolving deltas:   7% (10/134)
+2020-11-27T17:50:32.5271689Z Resolving deltas:   8% (11/134)
+2020-11-27T17:50:32.5289129Z Resolving deltas:   9% (13/134)
+2020-11-27T17:50:32.5416077Z Resolving deltas:  10% (14/134)
+2020-11-27T17:50:32.5527051Z Resolving deltas:  11% (15/134)
+2020-11-27T17:50:32.5530125Z Resolving deltas:  12% (17/134)
+2020-11-27T17:50:32.5533520Z Resolving deltas:  13% (18/134)
+2020-11-27T17:50:32.5535663Z Resolving deltas:  14% (19/134)
+2020-11-27T17:50:32.5537530Z Resolving deltas:  15% (21/134)
+2020-11-27T17:50:32.5539629Z Resolving deltas:  16% (22/134)
+2020-11-27T17:50:32.5542084Z Resolving deltas:  17% (23/134)
+2020-11-27T17:50:32.5549783Z Resolving deltas:  18% (25/134)
+2020-11-27T17:50:32.5552019Z Resolving deltas:  19% (26/134)
+2020-11-27T17:50:32.5554356Z Resolving deltas:  20% (27/134)
+2020-11-27T17:50:32.5570572Z Resolving deltas:  21% (29/134)
+2020-11-27T17:50:32.5575224Z Resolving deltas:  22% (30/134)
+2020-11-27T17:50:32.5578823Z Resolving deltas:  23% (31/134)
+2020-11-27T17:50:32.5581738Z Resolving deltas:  24% (33/134)
+2020-11-27T17:50:32.5584264Z Resolving deltas:  25% (34/134)
+2020-11-27T17:50:32.5587057Z Resolving deltas:  26% (35/134)
+2020-11-27T17:50:32.5590088Z Resolving deltas:  27% (37/134)
+2020-11-27T17:50:32.5594220Z Resolving deltas:  28% (38/134)
+2020-11-27T17:50:32.5597125Z Resolving deltas:  29% (39/134)
+2020-11-27T17:50:32.5600766Z Resolving deltas:  30% (41/134)
+2020-11-27T17:50:32.5603528Z Resolving deltas:  31% (42/134)
+2020-11-27T17:50:32.5607346Z Resolving deltas:  32% (43/134)
+2020-11-27T17:50:32.5610628Z Resolving deltas:  33% (45/134)
+2020-11-27T17:50:32.5613644Z Resolving deltas:  34% (46/134)
+2020-11-27T17:50:32.5618397Z Resolving deltas:  35% (47/134)
+2020-11-27T17:50:32.5625012Z Resolving deltas:  36% (49/134)
+2020-11-27T17:50:32.5628085Z Resolving deltas:  37% (50/134)
+2020-11-27T17:50:32.5630728Z Resolving deltas:  38% (51/134)
+2020-11-27T17:50:32.5633640Z Resolving deltas:  39% (53/134)
+2020-11-27T17:50:32.5636144Z Resolving deltas:  40% (54/134)
+2020-11-27T17:50:32.5639350Z Resolving deltas:  41% (55/134)
+2020-11-27T17:50:32.5640265Z Resolving deltas:  42% (57/134)
+2020-11-27T17:50:32.5641923Z Resolving deltas:  43% (58/134)
+2020-11-27T17:50:32.5643890Z Resolving deltas:  44% (59/134)
+2020-11-27T17:50:32.5644591Z Resolving deltas:  45% (61/134)
+2020-11-27T17:50:32.5647106Z Resolving deltas:  46% (62/134)
+2020-11-27T17:50:32.5649531Z Resolving deltas:  47% (63/134)
+2020-11-27T17:50:32.5651528Z Resolving deltas:  48% (65/134)
+2020-11-27T17:50:32.5652796Z Resolving deltas:  49% (66/134)
+2020-11-27T17:50:32.5655043Z Resolving deltas:  50% (67/134)
+2020-11-27T17:50:32.5657332Z Resolving deltas:  51% (69/134)
+2020-11-27T17:50:32.5661953Z Resolving deltas:  52% (70/134)
+2020-11-27T17:50:32.5664253Z Resolving deltas:  53% (72/134)
+2020-11-27T17:50:32.5666087Z Resolving deltas:  54% (73/134)
+2020-11-27T17:50:32.5669410Z Resolving deltas:  55% (74/134)
+2020-11-27T17:50:32.5670747Z Resolving deltas:  56% (76/134)
+2020-11-27T17:50:32.5672508Z Resolving deltas:  57% (77/134)
+2020-11-27T17:50:32.5676528Z Resolving deltas:  58% (78/134)
+2020-11-27T17:50:32.5677039Z Resolving deltas:  59% (80/134)
+2020-11-27T17:50:32.5677492Z Resolving deltas:  60% (81/134)
+2020-11-27T17:50:32.5681518Z Resolving deltas:  61% (82/134)
+2020-11-27T17:50:32.5684411Z Resolving deltas:  62% (84/134)
+2020-11-27T17:50:32.5684908Z Resolving deltas:  63% (85/134)
+2020-11-27T17:50:32.5687534Z Resolving deltas:  64% (86/134)
+2020-11-27T17:50:32.5688312Z Resolving deltas:  65% (88/134)
+2020-11-27T17:50:32.5689966Z Resolving deltas:  66% (89/134)
+2020-11-27T17:50:32.5693465Z Resolving deltas:  67% (90/134)
+2020-11-27T17:50:32.5695477Z Resolving deltas:  68% (92/134)
+2020-11-27T17:50:32.5697300Z Resolving deltas:  69% (93/134)
+2020-11-27T17:50:32.5701079Z Resolving deltas:  70% (94/134)
+2020-11-27T17:50:32.5723779Z Resolving deltas:  71% (96/134)
+2020-11-27T17:50:32.5730158Z Resolving deltas:  72% (97/134)
+2020-11-27T17:50:32.5739211Z Resolving deltas:  73% (98/134)
+2020-11-27T17:50:32.5739743Z Resolving deltas:  74% (100/134)
+2020-11-27T17:50:32.5740207Z Resolving deltas:  75% (101/134)
+2020-11-27T17:50:32.5740677Z Resolving deltas:  76% (102/134)
+2020-11-27T17:50:32.5741152Z Resolving deltas:  77% (104/134)
+2020-11-27T17:50:32.5741628Z Resolving deltas:  78% (105/134)
+2020-11-27T17:50:32.5742093Z Resolving deltas:  79% (106/134)
+2020-11-27T17:50:32.5746822Z Resolving deltas:  80% (108/134)
+2020-11-27T17:50:32.5752331Z Resolving deltas:  81% (109/134)
+2020-11-27T17:50:32.5758052Z Resolving deltas:  82% (110/134)
+2020-11-27T17:50:32.5761635Z Resolving deltas:  83% (112/134)
+2020-11-27T17:50:32.5764408Z Resolving deltas:  84% (113/134)
+2020-11-27T17:50:32.5767378Z Resolving deltas:  85% (114/134)
+2020-11-27T17:50:32.5770066Z Resolving deltas:  86% (116/134)
+2020-11-27T17:50:32.5772414Z Resolving deltas:  87% (117/134)
+2020-11-27T17:50:32.5775729Z Resolving deltas:  88% (118/134)
+2020-11-27T17:50:32.5778243Z Resolving deltas:  89% (120/134)
+2020-11-27T17:50:32.5778723Z Resolving deltas:  90% (121/134)
+2020-11-27T17:50:32.5779897Z Resolving deltas:  91% (122/134)
+2020-11-27T17:50:32.5782220Z Resolving deltas:  92% (124/134)
+2020-11-27T17:50:32.5783834Z Resolving deltas:  93% (125/134)
+2020-11-27T17:50:32.5786621Z Resolving deltas:  94% (126/134)
+2020-11-27T17:50:32.5789533Z Resolving deltas:  95% (128/134)
+2020-11-27T17:50:32.5790023Z Resolving deltas:  96% (129/134)
+2020-11-27T17:50:32.5792218Z Resolving deltas:  97% (130/134)
+2020-11-27T17:50:32.5868081Z Resolving deltas:  98% (132/134)
+2020-11-27T17:50:32.5884019Z Resolving deltas:  99% (133/134)
+2020-11-27T17:50:32.5884651Z Resolving deltas: 100% (134/134)
+2020-11-27T17:50:32.5885244Z Resolving deltas: 100% (134/134), done.
+2020-11-27T17:50:33.7675716Z From https://github.com/Analogy-LogViewer/Analogy.LogViewer
+2020-11-27T17:50:33.7677384Z  * [new ref]         76daf38650e50df112b9b148f2b24eb0c3207f9e -> origin/master
+2020-11-27T17:50:33.7704136Z ##[endgroup]
+2020-11-27T17:50:33.7705270Z ##[group]Determining the checkout info
+2020-11-27T17:50:33.7707310Z ##[endgroup]
+2020-11-27T17:50:33.7708170Z ##[group]Checking out the ref
+2020-11-27T17:50:33.7713186Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2020-11-27T17:50:34.8914775Z Updating files:  14% (81/577)
+2020-11-27T17:50:34.9563990Z Updating files:  15% (87/577)
+2020-11-27T17:50:34.9680370Z Updating files:  16% (93/577)
+2020-11-27T17:50:34.9684369Z Updating files:  17% (99/577)
+2020-11-27T17:50:34.9697121Z Updating files:  18% (104/577)
+2020-11-27T17:50:34.9706480Z Updating files:  19% (110/577)
+2020-11-27T17:50:34.9710656Z Updating files:  20% (116/577)
+2020-11-27T17:50:34.9716260Z Updating files:  21% (122/577)
+2020-11-27T17:50:34.9718728Z Updating files:  22% (127/577)
+2020-11-27T17:50:34.9723175Z Updating files:  23% (133/577)
+2020-11-27T17:50:34.9752194Z Updating files:  24% (139/577)
+2020-11-27T17:50:34.9755019Z Updating files:  25% (145/577)
+2020-11-27T17:50:34.9757017Z Updating files:  26% (151/577)
+2020-11-27T17:50:34.9760673Z Updating files:  27% (156/577)
+2020-11-27T17:50:34.9764692Z Updating files:  28% (162/577)
+2020-11-27T17:50:34.9769657Z Updating files:  29% (168/577)
+2020-11-27T17:50:34.9772248Z Updating files:  30% (174/577)
+2020-11-27T17:50:34.9798210Z Updating files:  31% (179/577)
+2020-11-27T17:50:34.9798746Z Updating files:  32% (185/577)
+2020-11-27T17:50:34.9802903Z Updating files:  33% (191/577)
+2020-11-27T17:50:34.9803405Z Updating files:  34% (197/577)
+2020-11-27T17:50:34.9805861Z Updating files:  35% (202/577)
+2020-11-27T17:50:34.9814642Z Updating files:  36% (208/577)
+2020-11-27T17:50:34.9818438Z Updating files:  37% (214/577)
+2020-11-27T17:50:34.9818982Z Updating files:  38% (220/577)
+2020-11-27T17:50:34.9864543Z Updating files:  39% (226/577)
+2020-11-27T17:50:34.9886695Z Updating files:  40% (231/577)
+2020-11-27T17:50:34.9894218Z Updating files:  41% (237/577)
+2020-11-27T17:50:34.9912881Z Updating files:  42% (243/577)
+2020-11-27T17:50:34.9913350Z Updating files:  43% (249/577)
+2020-11-27T17:50:34.9956176Z Updating files:  44% (254/577)
+2020-11-27T17:50:34.9956670Z Updating files:  45% (260/577)
+2020-11-27T17:50:34.9957155Z Updating files:  46% (266/577)
+2020-11-27T17:50:34.9957624Z Updating files:  47% (272/577)
+2020-11-27T17:50:34.9958119Z Updating files:  48% (277/577)
+2020-11-27T17:50:34.9958590Z Updating files:  49% (283/577)
+2020-11-27T17:50:34.9959067Z Updating files:  50% (289/577)
+2020-11-27T17:50:34.9959525Z Updating files:  51% (295/577)
+2020-11-27T17:50:34.9959996Z Updating files:  52% (301/577)
+2020-11-27T17:50:34.9960455Z Updating files:  53% (306/577)
+2020-11-27T17:50:34.9960926Z Updating files:  54% (312/577)
+2020-11-27T17:50:34.9971187Z Updating files:  55% (318/577)
+2020-11-27T17:50:34.9973720Z Updating files:  56% (324/577)
+2020-11-27T17:50:34.9980445Z Updating files:  57% (329/577)
+2020-11-27T17:50:34.9980925Z Updating files:  58% (335/577)
+2020-11-27T17:50:34.9989522Z Updating files:  59% (341/577)
+2020-11-27T17:50:34.9993933Z Updating files:  60% (347/577)
+2020-11-27T17:50:35.0006055Z Updating files:  61% (352/577)
+2020-11-27T17:50:35.0006503Z Updating files:  62% (358/577)
+2020-11-27T17:50:35.0016201Z Updating files:  63% (364/577)
+2020-11-27T17:50:35.0019870Z Updating files:  64% (370/577)
+2020-11-27T17:50:35.0033313Z Updating files:  65% (376/577)
+2020-11-27T17:50:35.0036097Z Updating files:  66% (381/577)
+2020-11-27T17:50:35.0040609Z Updating files:  67% (387/577)
+2020-11-27T17:50:35.0043198Z Updating files:  68% (393/577)
+2020-11-27T17:50:35.0046378Z Updating files:  69% (399/577)
+2020-11-27T17:50:35.0051191Z Updating files:  70% (404/577)
+2020-11-27T17:50:35.0054238Z Updating files:  71% (410/577)
+2020-11-27T17:50:35.0058013Z Updating files:  72% (416/577)
+2020-11-27T17:50:35.0061692Z Updating files:  73% (422/577)
+2020-11-27T17:50:35.0065253Z Updating files:  74% (427/577)
+2020-11-27T17:50:35.0067739Z Updating files:  75% (433/577)
+2020-11-27T17:50:35.0076625Z Updating files:  76% (439/577)
+2020-11-27T17:50:35.0081154Z Updating files:  77% (445/577)
+2020-11-27T17:50:35.0083204Z Updating files:  78% (451/577)
+2020-11-27T17:50:35.0086024Z Updating files:  79% (456/577)
+2020-11-27T17:50:35.0093937Z Updating files:  80% (462/577)
+2020-11-27T17:50:35.0094418Z Updating files:  81% (468/577)
+2020-11-27T17:50:35.0094914Z Updating files:  82% (474/577)
+2020-11-27T17:50:35.0120236Z Updating files:  83% (479/577)
+2020-11-27T17:50:35.0413996Z Updating files:  84% (485/577)
+2020-11-27T17:50:35.0458704Z Updating files:  85% (491/577)
+2020-11-27T17:50:35.0565301Z Updating files:  86% (497/577)
+2020-11-27T17:50:35.0625890Z Updating files:  87% (502/577)
+2020-11-27T17:50:35.0682484Z Updating files:  88% (508/577)
+2020-11-27T17:50:35.0682972Z Updating files:  89% (514/577)
+2020-11-27T17:50:35.0698421Z Updating files:  90% (520/577)
+2020-11-27T17:50:35.0701694Z Updating files:  91% (526/577)
+2020-11-27T17:50:35.0719576Z Updating files:  92% (531/577)
+2020-11-27T17:50:35.0723637Z Updating files:  93% (537/577)
+2020-11-27T17:50:35.0727576Z Updating files:  94% (543/577)
+2020-11-27T17:50:35.0728189Z Updating files:  95% (549/577)
+2020-11-27T17:50:35.0732836Z Updating files:  96% (554/577)
+2020-11-27T17:50:35.0733299Z Updating files:  97% (560/577)
+2020-11-27T17:50:35.0739862Z Updating files:  98% (566/577)
+2020-11-27T17:50:35.0742765Z Updating files:  99% (572/577)
+2020-11-27T17:50:35.0748350Z Updating files: 100% (577/577)
+2020-11-27T17:50:35.0748884Z Updating files: 100% (577/577), done.
+2020-11-27T17:50:35.0779862Z Reset branch 'master'
+2020-11-27T17:50:35.0780783Z Branch 'master' set up to track remote branch 'master' from 'origin'.
+2020-11-27T17:50:35.0836013Z ##[endgroup]
+2020-11-27T17:50:35.0886817Z [command]/usr/bin/git log -1 --format='%H'
+2020-11-27T17:50:35.0929329Z '76daf38650e50df112b9b148f2b24eb0c3207f9e'
+2020-11-27T17:50:35.1231778Z ##[group]Run codacy/codacy-analysis-cli-action@1.1.0
+2020-11-27T17:50:35.1232430Z with:
+2020-11-27T17:50:35.1233490Z   project-token: ***
+2020-11-27T17:50:35.1233944Z   verbose: true
+2020-11-27T17:50:35.1234413Z   output: results.sarif
+2020-11-27T17:50:35.1234858Z   format: sarif
+2020-11-27T17:50:35.1235416Z   gh-code-scanning-compat: true
+2020-11-27T17:50:35.1236049Z   max-allowed-issues: 2147483647
+2020-11-27T17:50:35.1236562Z ##[endgroup]
+2020-11-27T17:50:35.1769301Z --2020-11-27 17:50:35--  https://raw.githubusercontent.com/codacy/codacy-analysis-cli/4.0.0/bin/codacy-analysis-cli.sh
+2020-11-27T17:50:35.1942603Z Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.208.133
+2020-11-27T17:50:35.2051729Z Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.208.133|:443... connected.
+2020-11-27T17:50:35.3664436Z HTTP request sent, awaiting response... 200 OK
+2020-11-27T17:50:35.3667314Z Length: 3107 (3.0K) [text/plain]
+2020-11-27T17:50:35.3676151Z Saving to: ‘STDOUT’
+2020-11-27T17:50:35.3676601Z 
+2020-11-27T17:50:35.3677085Z      0K ...                                                   100% 14.3M=0s
+2020-11-27T17:50:35.3677428Z 
+2020-11-27T17:50:35.3681184Z 2020-11-27 17:50:35 (14.3 MB/s) - written to stdout [3107/3107]
+2020-11-27T17:50:35.3681925Z 
+2020-11-27T17:50:35.4004965Z /home/runner/work/_temp/9a0b307d-f459-4e4f-9ea2-2072ee2d27e5.sh: line 1: [: =: unary operator expected
+2020-11-27T17:50:35.4013688Z /home/runner/work/_temp/9a0b307d-f459-4e4f-9ea2-2072ee2d27e5.sh: line 1: [: =: unary operator expected
+2020-11-27T17:50:35.4020405Z /home/runner/work/_temp/9a0b307d-f459-4e4f-9ea2-2072ee2d27e5.sh: line 1: [: =: unary operator expected
+2020-11-27T17:50:35.4028699Z /home/runner/work/_temp/9a0b307d-f459-4e4f-9ea2-2072ee2d27e5.sh: line 1: [: =: unary operator expected
+2020-11-27T17:50:36.1861046Z Unable to find image 'codacy/codacy-analysis-cli:4.0.0' locally
+2020-11-27T17:50:36.4836384Z 4.0.0: Pulling from codacy/codacy-analysis-cli
+2020-11-27T17:50:36.4858097Z e7c96db7181b: Pulling fs layer
+2020-11-27T17:50:36.4858630Z f910a506b6cb: Pulling fs layer
+2020-11-27T17:50:36.4859146Z b6abafe80f63: Pulling fs layer
+2020-11-27T17:50:36.4859625Z 1811036e9141: Pulling fs layer
+2020-11-27T17:50:36.4860085Z 6314bc44cdf3: Pulling fs layer
+2020-11-27T17:50:36.4861651Z 1811036e9141: Waiting
+2020-11-27T17:50:36.4863347Z 6314bc44cdf3: Waiting
+2020-11-27T17:50:36.4868748Z 8eac012f9da4: Pulling fs layer
+2020-11-27T17:50:36.4869274Z 8eac012f9da4: Waiting
+2020-11-27T17:50:36.5596109Z f910a506b6cb: Verifying Checksum
+2020-11-27T17:50:36.5600971Z f910a506b6cb: Download complete
+2020-11-27T17:50:36.6053652Z e7c96db7181b: Verifying Checksum
+2020-11-27T17:50:36.6057130Z e7c96db7181b: Download complete
+2020-11-27T17:50:36.7146527Z 6314bc44cdf3: Verifying Checksum
+2020-11-27T17:50:36.7149922Z 6314bc44cdf3: Download complete
+2020-11-27T17:50:36.9096277Z e7c96db7181b: Pull complete
+2020-11-27T17:50:37.0665067Z b6abafe80f63: Verifying Checksum
+2020-11-27T17:50:37.0665747Z b6abafe80f63: Download complete
+2020-11-27T17:50:37.3176498Z f910a506b6cb: Pull complete
+2020-11-27T17:50:37.6277764Z 1811036e9141: Verifying Checksum
+2020-11-27T17:50:37.6278293Z 1811036e9141: Download complete
+2020-11-27T17:50:37.9733773Z 8eac012f9da4: Verifying Checksum
+2020-11-27T17:50:37.9734404Z 8eac012f9da4: Download complete
+2020-11-27T17:50:38.3908570Z b6abafe80f63: Pull complete
+2020-11-27T17:50:42.0195736Z 1811036e9141: Pull complete
+2020-11-27T17:50:42.0768040Z 6314bc44cdf3: Pull complete
+2020-11-27T17:50:42.5090355Z 8eac012f9da4: Pull complete
+2020-11-27T17:50:42.5109550Z Digest: sha256:4e563da124426918287e6ca75e80396264f4304b4a971c601099029bf89f9bcb
+2020-11-27T17:50:42.5128112Z Status: Downloaded newer image for codacy/codacy-analysis-cli:4.0.0
+2020-11-27T17:50:52.8257612Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, create new FileSnapshot: lastRead=2020-11-27 17:50:52.816000000, lastModified=2020-11-27 17:50:35.000000000, size=440, fileKey=(dev=811,ino=1831332) 
+2020-11-27T17:50:52.8267655Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.config/jgit/config.lock, isRacyClean=true, read=2020-11-27 17:50:51.736000000, lastModified=2020-11-27 17:50:51.000000000, delta=736000000 ns, racy<=1252500000 ns 
+2020-11-27T17:50:52.8273149Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:564[0;39m - file=/root/.config/jgit/config.lock, is racily clean 
+2020-11-27T17:50:52.8274840Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.jgit.util.SystemReader:432[0;39m - loading config FileBasedConfig[/root/.config/jgit/config] 
+2020-11-27T17:50:52.8278362Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/root/.config/jgit/config, create new FileSnapshot: lastRead=2020-11-27 17:50:52.827000000, lastModified=2020-11-27 17:50:51.000000000, size=131, fileKey=(dev=35,ino=1563597) 
+2020-11-27T17:50:52.8283965Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.config/jgit/config.lock, isRacyClean=false, read=2020-11-27 17:50:52.827000000, lastModified=2020-11-27 17:50:51.000000000, delta=1827000000 ns, racy<=1252500000 ns 
+2020-11-27T17:50:52.8289767Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8292434Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:52.8299172Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, create new FileSnapshot: lastRead=2020-11-27 17:50:52.829000000, lastModified=2020-11-27 17:50:35.000000000, size=440, fileKey=(dev=811,ino=1831332) 
+2020-11-27T17:50:52.8305391Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:52.8310492Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8313087Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:52.8318602Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:52.829000000, lastModified=2020-11-27 17:50:35.000000000, delta=17829000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8321601Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:52.8328482Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/index, create new FileSnapshot: lastRead=2020-11-27 17:50:52.832000000, lastModified=2020-11-27 17:50:35.000000000, size=62417, fileKey=(dev=811,ino=1831339) 
+2020-11-27T17:50:52.8333637Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, create new FileSnapshot: lastRead=2020-11-27 17:50:52.832000000, lastModified=2020-11-27 17:50:35.000000000, size=440, fileKey=(dev=811,ino=1831332) 
+2020-11-27T17:50:52.8340199Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:52.8345983Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8351037Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:52.8360935Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, create new FileSnapshot: lastRead=2020-11-27 17:50:52.834000000, lastModified=2020-11-27 17:50:35.000000000, size=440, fileKey=(dev=811,ino=1831332) 
+2020-11-27T17:50:52.8363837Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:52.8368155Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8371702Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:52.8380621Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:52.834000000, lastModified=2020-11-27 17:50:35.000000000, delta=17834000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8383108Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:52.8385675Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/index, create new FileSnapshot: lastRead=2020-11-27 17:50:52.837000000, lastModified=2020-11-27 17:50:35.000000000, size=62417, fileKey=(dev=811,ino=1831339) 
+2020-11-27T17:50:52.8459494Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:52.8464975Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8467912Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:52.8473128Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:52.834000000, lastModified=2020-11-27 17:50:35.000000000, delta=17834000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8476131Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:52.8507468Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:52.8512623Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8515556Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:52.8520963Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:52.834000000, lastModified=2020-11-27 17:50:35.000000000, delta=17834000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8524179Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:52.8601304Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:52.8607286Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8610177Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:52.8615677Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:52.834000000, lastModified=2020-11-27 17:50:35.000000000, delta=17834000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8618793Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:52.8625204Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/HEAD, create new FileSnapshot: lastRead=2020-11-27 17:50:52.861000000, lastModified=2020-11-27 17:50:35.000000000, size=23, fileKey=(dev=811,ino=1831341) 
+2020-11-27T17:50:52.8630960Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/refs/heads/master, create new FileSnapshot: lastRead=2020-11-27 17:50:52.862000000, lastModified=2020-11-27 17:50:35.000000000, size=41, fileKey=(dev=811,ino=1831340) 
+2020-11-27T17:50:52.8634501Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:52.8640666Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8643441Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:52.8649320Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:52.834000000, lastModified=2020-11-27 17:50:35.000000000, delta=17834000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8652325Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:52.8657675Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/HEAD, isRacyClean=false, read=2020-11-27 17:50:52.861000000, lastModified=2020-11-27 17:50:35.000000000, delta=17861000000 ns, racy<=1251250000 ns 
+2020-11-27T17:50:52.8669833Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/HEAD, is unmodified 
+2020-11-27T17:50:52.8672106Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/refs/heads/master, isRacyClean=false, read=2020-11-27 17:50:52.862000000, lastModified=2020-11-27 17:50:35.000000000, delta=17862000000 ns, racy<=1251250000 ns 
+2020-11-27T17:50:52.8674424Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/refs/heads/master, is unmodified 
+2020-11-27T17:50:52.8679326Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:581[0;39m - file=null, size changed from -1 to 4096 bytes 
+2020-11-27T17:50:52.8733381Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/objects/pack, create new FileSnapshot: lastRead=2020-11-27 17:50:52.867000000, lastModified=2020-11-27 17:50:33.000000000, size=4096, fileKey=(dev=811,ino=1831333) 
+2020-11-27T17:50:52.8736784Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/objects/pack/pack-3b15b557b37d9cd3a5e4a2565967f0d1acf92e26.pack, create new FileSnapshot: lastRead=2020-11-27 17:50:52.868000000, lastModified=2020-11-27 17:50:32.000000000, size=81428988, fileKey=(dev=811,ino=1831337) 
+2020-11-27T17:50:52.8740196Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.storage.file.PackFile:199[0;39m - Opening pack index /home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/objects/pack/pack-3b15b557b37d9cd3a5e4a2565967f0d1acf92e26.idx, size 0.015 MB took 1 ms 
+2020-11-27T17:50:52.8742429Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:581[0;39m - file=null, size changed from -1 to 41 bytes 
+2020-11-27T17:50:52.8744587Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/shallow, create new FileSnapshot: lastRead=2020-11-27 17:50:52.871000000, lastModified=2020-11-27 17:50:16.000000000, size=41, fileKey=(dev=811,ino=1831336) 
+2020-11-27T17:50:52.8759524Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/index, create new FileSnapshot: lastRead=2020-11-27 17:50:52.875000000, lastModified=2020-11-27 17:50:35.000000000, size=62417, fileKey=(dev=811,ino=1831339) 
+2020-11-27T17:50:52.8825494Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/index, create new FileSnapshot: lastRead=2020-11-27 17:50:52.881000000, lastModified=2020-11-27 17:50:35.000000000, size=62417, fileKey=(dev=811,ino=1831339) 
+2020-11-27T17:50:52.8854138Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:52.8859187Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8861989Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:52.8867346Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:52.834000000, lastModified=2020-11-27 17:50:35.000000000, delta=17834000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8870294Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:52.8974267Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:52.8979738Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8982705Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:52.8988410Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:52.834000000, lastModified=2020-11-27 17:50:35.000000000, delta=17834000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.8991445Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:52.9395616Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:52.9401060Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.9404423Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:52.9411135Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:52.834000000, lastModified=2020-11-27 17:50:35.000000000, delta=17834000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:52.9414536Z 11/27 17:50:52 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:53.1698236Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:53.1702954Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.1705809Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:53.1711559Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:52.834000000, lastModified=2020-11-27 17:50:35.000000000, delta=17834000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.1713850Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:53.1716905Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:53.1720953Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.1723491Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:53.1728812Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:52.834000000, lastModified=2020-11-27 17:50:35.000000000, delta=17834000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.1730964Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:53.1853357Z 11/27 17:50:53 [31mWARN [0;39m [36mc.c.a.c.command.AnalyseCommand:105[0;39m - There are uncommitted changes in the project.
+2020-11-27T17:50:53.1854335Z Please commit them before running your analysis:
+2020-11-27T17:50:53.1855084Z Uncommited files:
+2020-11-27T17:50:53.1855517Z results.sarif 
+2020-11-27T17:50:53.1862182Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:53.1867243Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.1870015Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:53.1874538Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:52.834000000, lastModified=2020-11-27 17:50:35.000000000, delta=17834000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.1877588Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:53.1883110Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/HEAD, isRacyClean=false, read=2020-11-27 17:50:52.861000000, lastModified=2020-11-27 17:50:35.000000000, delta=17861000000 ns, racy<=1251250000 ns 
+2020-11-27T17:50:53.1886499Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/HEAD, is unmodified 
+2020-11-27T17:50:53.1891818Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/refs/heads/master, isRacyClean=false, read=2020-11-27 17:50:52.862000000, lastModified=2020-11-27 17:50:35.000000000, delta=17862000000 ns, racy<=1251250000 ns 
+2020-11-27T17:50:53.1894090Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/refs/heads/master, is unmodified 
+2020-11-27T17:50:53.1896747Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:53.1901317Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.1919539Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:53.1922532Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:52.834000000, lastModified=2020-11-27 17:50:35.000000000, delta=17834000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.1925532Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:53.1927815Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/HEAD, isRacyClean=false, read=2020-11-27 17:50:52.861000000, lastModified=2020-11-27 17:50:35.000000000, delta=17861000000 ns, racy<=1251250000 ns 
+2020-11-27T17:50:53.1930800Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/HEAD, is unmodified 
+2020-11-27T17:50:53.1934126Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/refs/heads/master, isRacyClean=false, read=2020-11-27 17:50:52.862000000, lastModified=2020-11-27 17:50:35.000000000, delta=17862000000 ns, racy<=1251250000 ns 
+2020-11-27T17:50:53.1936272Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/refs/heads/master, is unmodified 
+2020-11-27T17:50:53.1938509Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/shallow, isRacyClean=false, read=2020-11-27 17:50:52.871000000, lastModified=2020-11-27 17:50:16.000000000, delta=36871000000 ns, racy<=1251250000 ns 
+2020-11-27T17:50:53.1940579Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/shallow, is unmodified 
+2020-11-27T17:50:53.1960844Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, create new FileSnapshot: lastRead=2020-11-27 17:50:53.195000000, lastModified=2020-11-27 17:50:35.000000000, size=440, fileKey=(dev=811,ino=1831332) 
+2020-11-27T17:50:53.1965867Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:53.1970388Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.1972987Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:53.1977457Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, create new FileSnapshot: lastRead=2020-11-27 17:50:53.197000000, lastModified=2020-11-27 17:50:35.000000000, size=440, fileKey=(dev=811,ino=1831332) 
+2020-11-27T17:50:53.2011540Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:53.2013342Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.2015131Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:53.2017439Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:53.197000000, lastModified=2020-11-27 17:50:35.000000000, delta=18197000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.2021228Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:53.2024616Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/index, create new FileSnapshot: lastRead=2020-11-27 17:50:53.199000000, lastModified=2020-11-27 17:50:35.000000000, size=62417, fileKey=(dev=811,ino=1831339) 
+2020-11-27T17:50:53.2027367Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, create new FileSnapshot: lastRead=2020-11-27 17:50:53.199000000, lastModified=2020-11-27 17:50:35.000000000, size=440, fileKey=(dev=811,ino=1831332) 
+2020-11-27T17:50:53.2030412Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:53.2032438Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.2034105Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:53.2037469Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, create new FileSnapshot: lastRead=2020-11-27 17:50:53.202000000, lastModified=2020-11-27 17:50:35.000000000, size=440, fileKey=(dev=811,ino=1831332) 
+2020-11-27T17:50:53.2039551Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:53.2042308Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.2046058Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:53.2051514Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:53.202000000, lastModified=2020-11-27 17:50:35.000000000, delta=18202000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.2086882Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:53.2089538Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/index, create new FileSnapshot: lastRead=2020-11-27 17:50:53.205000000, lastModified=2020-11-27 17:50:35.000000000, size=62417, fileKey=(dev=811,ino=1831339) 
+2020-11-27T17:50:53.2091597Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:53.2093721Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.2095346Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:53.2097641Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:53.202000000, lastModified=2020-11-27 17:50:35.000000000, delta=18202000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.2099916Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:53.2102144Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/HEAD, create new FileSnapshot: lastRead=2020-11-27 17:50:53.208000000, lastModified=2020-11-27 17:50:35.000000000, size=23, fileKey=(dev=811,ino=1831341) 
+2020-11-27T17:50:53.2105209Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/refs/heads/master, create new FileSnapshot: lastRead=2020-11-27 17:50:53.209000000, lastModified=2020-11-27 17:50:35.000000000, size=41, fileKey=(dev=811,ino=1831340) 
+2020-11-27T17:50:53.2107191Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:53.2110295Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.2113910Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:53.2119491Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:53.202000000, lastModified=2020-11-27 17:50:35.000000000, delta=18202000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.2122343Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:53.2128981Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/HEAD, isRacyClean=false, read=2020-11-27 17:50:53.208000000, lastModified=2020-11-27 17:50:35.000000000, delta=18208000000 ns, racy<=1251250000 ns 
+2020-11-27T17:50:53.2132986Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/HEAD, is unmodified 
+2020-11-27T17:50:53.2141419Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/refs/heads/master, isRacyClean=false, read=2020-11-27 17:50:53.209000000, lastModified=2020-11-27 17:50:35.000000000, delta=18209000000 ns, racy<=1251250000 ns 
+2020-11-27T17:50:53.2149019Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/refs/heads/master, is unmodified 
+2020-11-27T17:50:53.2156307Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:581[0;39m - file=null, size changed from -1 to 4096 bytes 
+2020-11-27T17:50:53.2163693Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/objects/pack, create new FileSnapshot: lastRead=2020-11-27 17:50:53.215000000, lastModified=2020-11-27 17:50:33.000000000, size=4096, fileKey=(dev=811,ino=1831333) 
+2020-11-27T17:50:53.2174323Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/objects/pack/pack-3b15b557b37d9cd3a5e4a2565967f0d1acf92e26.pack, create new FileSnapshot: lastRead=2020-11-27 17:50:53.216000000, lastModified=2020-11-27 17:50:32.000000000, size=81428988, fileKey=(dev=811,ino=1831337) 
+2020-11-27T17:50:53.2194043Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.storage.file.PackFile:199[0;39m - Opening pack index /home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/objects/pack/pack-3b15b557b37d9cd3a5e4a2565967f0d1acf92e26.idx, size 0.015 MB took 1 ms 
+2020-11-27T17:50:53.2201881Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:581[0;39m - file=null, size changed from -1 to 41 bytes 
+2020-11-27T17:50:53.2210963Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:272[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/shallow, create new FileSnapshot: lastRead=2020-11-27 17:50:53.220000000, lastModified=2020-11-27 17:50:16.000000000, size=41, fileKey=(dev=811,ino=1831336) 
+2020-11-27T17:50:53.2226385Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:550[0;39m - file=/root/.config/jgit/config.lock, cannot be racily clean 
+2020-11-27T17:50:53.2233385Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/root/.gitconfig, isRacyClean=false, read=2020-11-27 17:50:51.164000000, lastModified=1970-01-01 00:00:00.000000000, delta=1606499451164000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.2239792Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/root/.gitconfig, is unmodified 
+2020-11-27T17:50:53.2247514Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, isRacyClean=false, read=2020-11-27 17:50:53.202000000, lastModified=2020-11-27 17:50:35.000000000, delta=18202000000 ns, racy<=2500000000 ns 
+2020-11-27T17:50:53.2254200Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/config, is unmodified 
+2020-11-27T17:50:53.2263175Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:513[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/shallow, isRacyClean=false, read=2020-11-27 17:50:53.220000000, lastModified=2020-11-27 17:50:16.000000000, delta=37220000000 ns, racy<=1251250000 ns 
+2020-11-27T17:50:53.2270673Z 11/27 17:50:53 [39mDEBUG[0;39m [36mo.e.j.i.s.file.FileSnapshot:557[0;39m - file=/home/runner/work/Analogy.LogViewer/Analogy.LogViewer/.git/shallow, is unmodified 
+2020-11-27T17:50:53.4390360Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Sutotal_32x32.png 
+2020-11-27T17:50:53.4398731Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/UpdateForm.resx 
+2020-11-27T17:50:53.4404919Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraCharts.v19.1.Extensions.dll 
+2020-11-27T17:50:53.4413172Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/StoreLogo.scale-100.png 
+2020-11-27T17:50:53.4418539Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/FilePooling_16x16.png 
+2020-11-27T17:50:53.4422706Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Properties_16x16.png 
+2020-11-27T17:50:53.4427867Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Ribbon2.jpg 
+2020-11-27T17:50:53.4432040Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Article_16x16.png 
+2020-11-27T17:50:53.4438537Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.altform-lightunplated_targetsize-32.png 
+2020-11-27T17:50:53.4444048Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraWizard.v19.1.dll 
+2020-11-27T17:50:53.4448391Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/TwoColumns.png 
+2020-11-27T17:50:53.4453847Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Analogy_logo1.png 
+2020-11-27T17:50:53.4458003Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Database_off.png 
+2020-11-27T17:50:53.4462233Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/ServerON.png 
+2020-11-27T17:50:53.4466904Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/MainForm.resx 
+2020-11-27T17:50:53.4470901Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/3DColumn_32x32.png 
+2020-11-27T17:50:53.4475582Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/IncreaseFontSize_16x16.png 
+2020-11-27T17:50:53.4479907Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/RichEditBookmark_32x32.png 
+2020-11-27T17:50:53.4484670Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/crossMark.png 
+2020-11-27T17:50:53.4490082Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/FullscreenBlue16.png 
+2020-11-27T17:50:53.4497078Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/SmallTile.scale-150.png 
+2020-11-27T17:50:53.4506819Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/FileComparerForm.resx 
+2020-11-27T17:50:53.4515622Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for .gitignore 
+2020-11-27T17:50:53.4524751Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.Dialogs.v19.1.Core.dll 
+2020-11-27T17:50:53.4574435Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/WhatsNew_4_2_8_ToggleLogLevel2.jpg 
+2020-11-27T17:50:53.4583074Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/SearchForm.resx 
+2020-11-27T17:50:53.4593034Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.Mvvm.v19.1.DataModel.dll 
+2020-11-27T17:50:53.4601985Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/DataVisualizerForm.resx 
+2020-11-27T17:50:53.4611800Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.BonusSkins.v19.1.dll 
+2020-11-27T17:50:53.4620235Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/StoreLogo.scale-200.png 
+2020-11-27T17:50:53.4628303Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AnalogyIconLight.ico 
+2020-11-27T17:50:53.4637154Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/UtilityUC.resx 
+2020-11-27T17:50:53.4645089Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Download_32x32.png 
+2020-11-27T17:50:53.4694626Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Icons/Analogy_Icon2.ico 
+2020-11-27T17:50:53.4714169Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/WhatsNew_4_2_8_ToggleLogLevel1.jpg 
+2020-11-27T17:50:53.4721519Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/OpenFile32x32.png 
+2020-11-27T17:50:53.4723097Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/play.png 
+2020-11-27T17:50:53.4730417Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Media_16x16.png 
+2020-11-27T17:50:53.4735040Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/RemoteLogsUC.resx 
+2020-11-27T17:50:53.4736676Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Save_16x16.png 
+2020-11-27T17:50:53.4742656Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/WhatIsNew/WhatIsNew4_2_8.resx 
+2020-11-27T17:50:53.4746788Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Paste_16x16.png 
+2020-11-27T17:50:53.4754248Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/GitHubicon16x16.png 
+2020-11-27T17:50:53.4764801Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/Analogy.Interfaces.Providers.png 
+2020-11-27T17:50:53.4810325Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/AnalogyExclude.resx 
+2020-11-27T17:50:53.4812248Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/checkOK.png 
+2020-11-27T17:50:53.4814007Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Properties/PublishProfiles/netcoreapp3.1_x64.pubxml 
+2020-11-27T17:50:53.4815688Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Media_32x32.png 
+2020-11-27T17:50:53.4817331Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/LargeTile.scale-200.png 
+2020-11-27T17:50:53.4818941Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Images/Philips-logo.png 
+2020-11-27T17:50:53.4828749Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraGrid.v19.1.dll 
+2020-11-27T17:50:53.4831808Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/NotOk_32x32.png 
+2020-11-27T17:50:53.4836427Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.Mvvm.v19.1.dll 
+2020-11-27T17:50:53.4840084Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/SmallTile.scale-400.png 
+2020-11-27T17:50:53.4852858Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Send_16x16.png 
+2020-11-27T17:50:53.4862793Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/AnalogyMainUI.jpg 
+2020-11-27T17:50:53.4871660Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/gitHistoryDataVisualizer.jpg 
+2020-11-27T17:50:53.4875516Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/XtraFormLogGrid.resx 
+2020-11-27T17:50:53.4879074Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/OpenFolder_32x32.png 
+2020-11-27T17:50:53.4882713Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/SplashScreen.scale-150.png 
+2020-11-27T17:50:53.4887940Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/ChartsShowLegend_16x16.png 
+2020-11-27T17:50:53.4891589Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.altform-unplated_targetsize-256.png 
+2020-11-27T17:50:53.4894859Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Analogy_logo1.ico 
+2020-11-27T17:50:53.4899683Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/AnalogyIconDark.ico 
+2020-11-27T17:50:53.4905058Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.Charts.v19.1.Core.dll 
+2020-11-27T17:50:53.4908543Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Object.bmp 
+2020-11-27T17:50:53.4912004Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/RowIndex_32x32.png 
+2020-11-27T17:50:53.4917475Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/FormCombineFiles.resx 
+2020-11-27T17:50:53.4973072Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.altform-lightunplated_targetsize-24.png 
+2020-11-27T17:50:53.4976105Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/ArrangeGroups_32x32.png 
+2020-11-27T17:50:53.4978716Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/FormMessageDetails.resx 
+2020-11-27T17:50:53.4980479Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/StoreLogo.scale-400.png 
+2020-11-27T17:50:53.4982143Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Action_OpenFile_16x16.png 
+2020-11-27T17:50:53.4985166Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.Data.v19.1.dll 
+2020-11-27T17:50:53.4986989Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Copy_16x16.png 
+2020-11-27T17:50:53.4989888Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/UserSettingsDataProvidersForm.resx 
+2020-11-27T17:50:53.4991958Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/globalTools16x16.png 
+2020-11-27T17:50:53.4995251Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraCharts.v19.1.Extensions.dll 
+2020-11-27T17:50:53.4998359Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AddFile_32x32.png 
+2020-11-27T17:50:53.5000095Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.scale-150.png 
+2020-11-27T17:50:53.5001939Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/WhatIsNew/WhatIsNew4_3_1.resx 
+2020-11-27T17:50:53.5003837Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraLayout.v19.1.dll 
+2020-11-27T17:50:53.5005658Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/WhatIsNew/WhatIsNew4_3_0.resx 
+2020-11-27T17:50:53.5013135Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/save.png 
+2020-11-27T17:50:53.5019103Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.BonusSkins.v19.1.dll 
+2020-11-27T17:50:53.5028108Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraVerticalGrid.v19.1.dll 
+2020-11-27T17:50:53.5040884Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Wide310x150Logo.scale-100.png 
+2020-11-27T17:50:53.5044593Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.Printing.v19.1.Core.dll 
+2020-11-27T17:50:53.5055917Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Installer.wapproj 
+2020-11-27T17:50:53.5059806Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.altform-unplated_targetsize-16.png 
+2020-11-27T17:50:53.5062868Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.targetsize-48.png 
+2020-11-27T17:50:53.5066960Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.scale-400.png 
+2020-11-27T17:50:53.5070508Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/ChangeLog.resx 
+2020-11-27T17:50:53.5073522Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/csharp.png 
+2020-11-27T17:50:53.5077092Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Updater/DownloadUpdateDialog.resx 
+2020-11-27T17:50:53.5084639Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AnalogyPhilips.png 
+2020-11-27T17:50:53.5088003Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Properties/Resources.resx 
+2020-11-27T17:50:53.5100153Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.targetsize-32.png 
+2020-11-27T17:50:53.5148167Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/RichEditBookmark_16x16.png 
+2020-11-27T17:50:53.5157168Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraRichEdit.v19.1.dll 
+2020-11-27T17:50:53.5164979Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/ToolbarFormMain.resx 
+2020-11-27T17:50:53.5168360Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/DeleteList_32x32.png 
+2020-11-27T17:50:53.5171505Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AnalogyNlog128x128.jpg 
+2020-11-27T17:50:53.5175048Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.Pdf.v19.1.Core.dll 
+2020-11-27T17:50:53.5177874Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/OnlineLog.resx 
+2020-11-27T17:50:53.5180974Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/OperatingSystem_32x32.png 
+2020-11-27T17:50:53.5183562Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/serilog.png 
+2020-11-27T17:50:53.5187286Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/PageSetup_16x16.png 
+2020-11-27T17:50:53.5190541Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.scale-100.png 
+2020-11-27T17:50:53.5193237Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Single32x32.png 
+2020-11-27T17:50:53.5251414Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Float.jpg 
+2020-11-27T17:50:53.5253082Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Analogy.csproj 
+2020-11-27T17:50:53.5255623Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/Analogy1024x1024.jpg 
+2020-11-27T17:50:53.5258160Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/GitHub-Mark-32px.png 
+2020-11-27T17:50:53.5259776Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Clear_16x16.png 
+2020-11-27T17:50:53.5262205Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/nlog.png 
+2020-11-27T17:50:53.5264890Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraNavBar.v19.1.dll 
+2020-11-27T17:50:53.5266802Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy.UnitTests/example.ajson 
+2020-11-27T17:50:53.5268765Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraVerticalGrid.v19.1.dll 
+2020-11-27T17:50:53.5270967Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraCharts.v19.1.UI.dll 
+2020-11-27T17:50:53.5272855Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/3DClusteredColumn_32x32.png 
+2020-11-27T17:50:53.5274637Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Wide310x150Logo.scale-200.png 
+2020-11-27T17:50:53.5277519Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.targetsize-24.png 
+2020-11-27T17:50:53.5279191Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/cpp.png 
+2020-11-27T17:50:53.5280804Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/SplashScreen.scale-400.png 
+2020-11-27T17:50:53.5283414Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Analogy_With_kafka.png 
+2020-11-27T17:50:53.5285273Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Wide310x150Logo.scale-400.png 
+2020-11-27T17:50:53.5288187Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.scale-200.png 
+2020-11-27T17:50:53.5291256Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.altform-lightunplated_targetsize-256.png 
+2020-11-27T17:50:53.5294418Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/LogStatisticsUC.resx 
+2020-11-27T17:50:53.5297546Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.Utils.v19.1.dll 
+2020-11-27T17:50:53.5300414Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Ribbon.jpg 
+2020-11-27T17:50:53.5302255Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/databasearchitecture.png 
+2020-11-27T17:50:53.5309122Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/FilePooling_32x32.png 
+2020-11-27T17:50:53.5312603Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.Charts.v19.1.Core.dll 
+2020-11-27T17:50:53.5331349Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Undefined.jpg 
+2020-11-27T17:50:53.5334597Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Icons/Analogy_icon1.ico 
+2020-11-27T17:50:53.5337909Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Analogy_logo2.png 
+2020-11-27T17:50:53.5341555Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.altform-lightunplated_targetsize-48.png 
+2020-11-27T17:50:53.5344489Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Time2_16x16.png 
+2020-11-27T17:50:53.5347003Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/restart.jpg 
+2020-11-27T17:50:53.5350396Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/First_16x16.png 
+2020-11-27T17:50:53.5358331Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Delete_16x16.png 
+2020-11-27T17:50:53.5361074Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/FolderTreeViewUC.resx 
+2020-11-27T17:50:53.5364301Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Wizard_32x32.png 
+2020-11-27T17:50:53.5367657Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/RecentFolders32x32.png 
+2020-11-27T17:50:53.5411374Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Article_32x32.png 
+2020-11-27T17:50:53.5413092Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/LargeTile.scale-400.png 
+2020-11-27T17:50:53.5415885Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/SplashScreen.scale-200.png 
+2020-11-27T17:50:53.5417591Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/About_32x32.png 
+2020-11-27T17:50:53.5420226Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Analogy_icon1.ico 
+2020-11-27T17:50:53.5422744Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/StoreLogo.scale-125.png 
+2020-11-27T17:50:53.5424449Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/WhatIsNew/WhatIsNew4_3_2.resx 
+2020-11-27T17:50:53.5427125Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/XtraUCDirectoryListing.resx 
+2020-11-27T17:50:53.5430054Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.Office.v19.1.Core.dll 
+2020-11-27T17:50:53.5432851Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AnalogyNlog128x1281.jpg 
+2020-11-27T17:50:53.5435602Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.Images.v19.1.dll 
+2020-11-27T17:50:53.5438586Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square150x150Logo.scale-125.png 
+2020-11-27T17:50:53.5440426Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/SearchInFilesUC.resx 
+2020-11-27T17:50:53.5442090Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/upload32x32.png 
+2020-11-27T17:50:53.5443716Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/globalTools32x32.png 
+2020-11-27T17:50:53.5445379Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Package.appxmanifest 
+2020-11-27T17:50:53.5446987Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/serverOff.png 
+2020-11-27T17:50:53.5466998Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraCharts.v19.1.Web.dll 
+2020-11-27T17:50:53.5469037Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/PieLabelsDataLabels_32x32.png 
+2020-11-27T17:50:53.5470904Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.Utils.v19.1.dll 
+2020-11-27T17:50:53.5472716Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/UserSettingsForm.resx 
+2020-11-27T17:50:53.5501999Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Single16x16.png 
+2020-11-27T17:50:53.5507725Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy.UnitTests/example.zip 
+2020-11-27T17:50:53.5512584Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.Sparkline.v19.1.Core.dll 
+2020-11-27T17:50:53.5516339Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/FilePoolingLog.resx 
+2020-11-27T17:50:53.5520123Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/StoreLogo.scale-150.png 
+2020-11-27T17:50:53.5524143Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/ComponentDownloadsForm.resx 
+2020-11-27T17:50:53.5527974Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/AnalogyIconLight.ico 
+2020-11-27T17:50:53.5531649Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/FileSystemUC.resx 
+2020-11-27T17:50:53.5535838Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraMap.v19.1.dll 
+2020-11-27T17:50:53.5539840Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraTreeMap.v19.1.dll 
+2020-11-27T17:50:53.5543716Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.targetsize-16.png 
+2020-11-27T17:50:53.5548288Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/BadgeLogo.scale-150.png 
+2020-11-27T17:50:53.5554485Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/log4net32x32.png 
+2020-11-27T17:50:53.5566482Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/AnalogyPie.jpg 
+2020-11-27T17:50:53.5568912Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/Analytics UC.resx 
+2020-11-27T17:50:53.5570747Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/StoreLogo.backup.png 
+2020-11-27T17:50:53.5578867Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/BadgeLogo.scale-400.png 
+2020-11-27T17:50:53.5580826Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Date.jpg 
+2020-11-27T17:50:53.5603232Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Radio_32x32.png 
+2020-11-27T17:50:53.5604874Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/light brown.jpg 
+2020-11-27T17:50:53.5606915Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AnalogyLight.png 
+2020-11-27T17:50:53.5609605Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Clear_32x32.png 
+2020-11-27T17:50:53.5613678Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/OpenFile16x16.png 
+2020-11-27T17:50:53.5616362Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/json16x16.png 
+2020-11-27T17:50:53.5618640Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Time2_32x32.png 
+2020-11-27T17:50:53.5621520Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.Images.v19.1.dll 
+2020-11-27T17:50:53.5623570Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AnalogyNlog.jpg 
+2020-11-27T17:50:53.5626076Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/FirstTimeRunForm.resx 
+2020-11-27T17:50:53.5628271Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Analogy_image_16x16.jpg 
+2020-11-27T17:50:53.5630768Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/FitNone_16x16.png 
+2020-11-27T17:50:53.5632740Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/EditComment_16x16.png 
+2020-11-27T17:50:53.5635060Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/upload16x16.png 
+2020-11-27T17:50:53.5649001Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/DataVisualizerUC.resx 
+2020-11-27T17:50:53.5650847Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/json32x32.png 
+2020-11-27T17:50:53.5652732Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.Utils.v19.1.UI.dll 
+2020-11-27T17:50:53.5654628Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/serilog32x32.png 
+2020-11-27T17:50:53.5656200Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/json.png 
+2020-11-27T17:50:53.5658572Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/App.config 
+2020-11-27T17:50:53.5660405Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/AnalogyLight.png 
+2020-11-27T17:50:53.5663235Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraDialogs.v19.1.dll 
+2020-11-27T17:50:53.5666171Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/LockScreenLogo.scale-200.png 
+2020-11-27T17:50:53.5668489Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AnalogyIconDark.ico 
+2020-11-27T17:50:53.5670990Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy.UnitTests/Analogy.UnitTests.csproj 
+2020-11-27T17:50:53.5674513Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Images/PhilipsShield.jpg 
+2020-11-27T17:50:53.5677438Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.RichEdit.v19.1.Core.dll 
+2020-11-27T17:50:53.5680230Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/ThreeColumns.png 
+2020-11-27T17:50:53.5682827Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraCharts.v19.1.dll 
+2020-11-27T17:50:53.5686159Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraCharts.v19.1.UI.dll 
+2020-11-27T17:50:53.5688510Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/ClientServerLog.resx 
+2020-11-27T17:50:53.5691259Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraCharts.v19.1.Web.dll 
+2020-11-27T17:50:53.5694110Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Lookup&Reference_32x32.png 
+2020-11-27T17:50:53.5695897Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/LargeTile.scale-100.png 
+2020-11-27T17:50:53.5697606Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/OK_32x32.png 
+2020-11-27T17:50:53.5699758Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.targetsize-256.png 
+2020-11-27T17:50:53.5734832Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/IDE_16x16.png 
+2020-11-27T17:50:53.5736450Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/SettingsMenu.jpg 
+2020-11-27T17:50:53.5738357Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Wide310x150Logo.scale-150.png 
+2020-11-27T17:50:53.5741136Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/IndentIncrease_16x16.png 
+2020-11-27T17:50:53.5742938Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Tools/JsonViewer/JsonViewerForm.resx 
+2020-11-27T17:50:53.5764993Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/DecreaseFontSize_16x16.png 
+2020-11-27T17:50:53.5780205Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/ChartsShowLegend_32x32.png 
+2020-11-27T17:50:53.5783497Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Bar_32x32.png 
+2020-11-27T17:50:53.5786533Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/Analogy.Interfaces.highlevel.png 
+2020-11-27T17:50:53.5790420Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/WhatsNew_4_2_8_GobalTools.jpg 
+2020-11-27T17:50:53.5793007Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for icon.png 
+2020-11-27T17:50:53.5795593Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/PieChartUC.resx 
+2020-11-27T17:50:53.5799610Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraCharts.v19.1.dll 
+2020-11-27T17:50:53.5802549Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/RecentlyUse_32x32.png 
+2020-11-27T17:50:53.5805191Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/AnalogyDark.png 
+2020-11-27T17:50:53.5809397Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.altform-unplated_targetsize-48.png 
+2020-11-27T17:50:53.5812506Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/Analogy1024x1024.png 
+2020-11-27T17:50:53.5816436Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Analogy_Icon2.ico 
+2020-11-27T17:50:53.5819356Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/LocalLogFilesUC.resx 
+2020-11-27T17:50:53.5822466Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/xml32x32.png 
+2020-11-27T17:50:53.5825264Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/RowIndex_16x16.png 
+2020-11-27T17:50:53.5828984Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/Analogy.png 
+2020-11-27T17:50:53.5831792Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Array.bmp 
+2020-11-27T17:50:53.5834726Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/ProcessNameAndID.resx 
+2020-11-27T17:50:53.5838703Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Analogy_image_32x32.jpg 
+2020-11-27T17:50:53.5891572Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.altform-lightunplated_targetsize-16.png 
+2020-11-27T17:50:53.5894859Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/LoadFrom_16x16.png 
+2020-11-27T17:50:53.5897627Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/CombineFilesUC.resx 
+2020-11-27T17:50:53.5900386Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/LoadFrom_32x32.png 
+2020-11-27T17:50:53.5903216Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy.UnitTests/example.ajson.gz 
+2020-11-27T17:50:53.5905917Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Icons/Analogy_Icon2_16x16.ico 
+2020-11-27T17:50:53.5908751Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Guid.jpg 
+2020-11-27T17:50:53.5911349Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/rss.jpg 
+2020-11-27T17:50:53.5914169Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.Utils.v19.1.UI.dll 
+2020-11-27T17:50:53.5917271Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/AnalogyAddCommentsToMessage.resx 
+2020-11-27T17:50:53.5920334Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/SettingsMenu.jpg 
+2020-11-27T17:50:53.5923329Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/WhatIsNew/WhatIsNew4_2_10.resx 
+2020-11-27T17:50:53.5926409Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraNavBar.v19.1.dll 
+2020-11-27T17:50:53.5929833Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/LocalColorScheme_32x32.png 
+2020-11-27T17:50:53.5931694Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/working.gif 
+2020-11-27T17:50:53.5933744Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraTreeMap.v19.1.dll 
+2020-11-27T17:50:53.5937201Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraEditors.v19.1.dll 
+2020-11-27T17:50:53.5940291Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Boolean.jpg 
+2020-11-27T17:50:53.5943332Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/AboutDataSourceBox.resx 
+2020-11-27T17:50:53.5945385Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/OperatingSystem_16x16.png 
+2020-11-27T17:50:53.5949366Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/SplashScreen.scale-100.png 
+2020-11-27T17:50:53.5952615Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/AnalogyMainUI2.jpg 
+2020-11-27T17:50:53.5955641Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/WindowsEventLog.resx 
+2020-11-27T17:50:53.5959062Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraPrinting.v19.1.dll 
+2020-11-27T17:50:53.5962383Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/SingleMasterFilter_16x16.png 
+2020-11-27T17:50:53.5972647Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/BadgeLogo.scale-200.png 
+2020-11-27T17:50:53.5974842Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Analogy1024x1024.jpg 
+2020-11-27T17:50:53.5976811Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.Mvvm.v19.1.dll 
+2020-11-27T17:50:53.5978749Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/Java.png 
+2020-11-27T17:50:53.6017412Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/Analogy.xcf 
+2020-11-27T17:50:53.6020776Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraGrid.v19.1.dll 
+2020-11-27T17:50:53.6023871Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Properties_32x32.png 
+2020-11-27T17:50:53.6027003Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.Mvvm.v19.1.ViewModel.dll 
+2020-11-27T17:50:53.6030099Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/UCLogs.resx 
+2020-11-27T17:50:53.6032800Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square150x150Logo.scale-150.png 
+2020-11-27T17:50:53.6035898Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraRichEdit.v19.1.dll 
+2020-11-27T17:50:53.6038904Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/AnalogyExcludeMessage.resx 
+2020-11-27T17:50:53.6041545Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/iis.jpg 
+2020-11-27T17:50:53.6044202Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.scale-125.png 
+2020-11-27T17:50:53.6047438Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraTreeList.v19.1.dll 
+2020-11-27T17:50:53.6049541Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/BadgeLogo.scale-125.png 
+2020-11-27T17:50:53.6051187Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Icons/Analogy_icon1_16x16.ico 
+2020-11-27T17:50:53.6052695Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/String.jpg 
+2020-11-27T17:50:53.6054351Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AnalogyBanner512x512.jpg 
+2020-11-27T17:50:53.6056353Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.Printing.v19.1.Core.dll 
+2020-11-27T17:50:53.6058445Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/SmallTile.scale-125.png 
+2020-11-27T17:50:53.6060355Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraBars.v19.1.dll 
+2020-11-27T17:50:53.6062216Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/AnalogyDataProviders.jpg 
+2020-11-27T17:50:53.6063836Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Radio_16x16.png 
+2020-11-27T17:50:53.6065383Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Technology_16x16.png 
+2020-11-27T17:50:53.6066939Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/OpenWindows.resx 
+2020-11-27T17:50:53.6068606Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AnalogyDark.png 
+2020-11-27T17:50:53.6070147Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/copy.png 
+2020-11-27T17:50:53.6071796Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Lookup_Reference_32x32.png 
+2020-11-27T17:50:53.6073722Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.RichEdit.v19.1.Core.dll 
+2020-11-27T17:50:53.6075909Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.Sparkline.v19.1.Core.dll 
+2020-11-27T17:50:53.6078050Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/WhatIsNew/WhatIsNew4_2_9.resx 
+2020-11-27T17:50:53.6079756Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/OpenFolder_16x16.png 
+2020-11-27T17:50:53.6081478Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AnalogyNlog.png 
+2020-11-27T17:50:53.6083167Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Database_on.png 
+2020-11-27T17:50:53.6084818Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/First_32x32.png 
+2020-11-27T17:50:53.6086354Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Images/Kama.jpg 
+2020-11-27T17:50:53.6088112Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/About_16x16.png 
+2020-11-27T17:50:53.6089857Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Properties/Settings.settings 
+2020-11-27T17:50:53.6091676Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/LogsComparerUC.resx 
+2020-11-27T17:50:53.6093591Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/XtraUCFileSystem.resx 
+2020-11-27T17:50:53.6095490Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/LargeTile.scale-150.png 
+2020-11-27T17:50:53.6097482Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/DataProviderSettingsForm.resx 
+2020-11-27T17:50:53.6099466Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/MessageDetailsUC.resx 
+2020-11-27T17:50:53.6101331Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/IDE_32x32.png 
+2020-11-27T17:50:53.6103332Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.targetsize-24_altform-unplated.png 
+2020-11-27T17:50:53.6105691Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.Mvvm.v19.1.ViewModel.dll 
+2020-11-27T17:50:53.6107789Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AnalogyIIS128x128.jpg 
+2020-11-27T17:50:53.6109641Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Tools/JsonViewer/JsonNodeImages.resx 
+2020-11-27T17:50:53.6111539Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/BadgeLogo.scale-100.png 
+2020-11-27T17:50:53.6113277Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Clear.png 
+2020-11-27T17:50:53.6120981Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Action_OpenFile_32x32.png 
+2020-11-27T17:50:53.6123956Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Null.jpg 
+2020-11-27T17:50:53.6126762Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Analogy_icon1_16x16.ico 
+2020-11-27T17:50:53.6129967Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraEditors.v19.1.dll 
+2020-11-27T17:50:53.6131726Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/python.png 
+2020-11-27T17:50:53.6255079Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/AnalogyAddNote.jpg 
+2020-11-27T17:50:53.6257134Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraLayout.v19.1.dll 
+2020-11-27T17:50:53.6259106Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/ServerMode_16x16.png 
+2020-11-27T17:50:53.6261004Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square150x150Logo.scale-100.png 
+2020-11-27T17:50:53.6262896Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/AnalogyAboutBox.resx 
+2020-11-27T17:50:53.6264737Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/SmallTile.scale-100.png 
+2020-11-27T17:50:53.6266869Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/XtraFormWindowsEventlogsManager.resx 
+2020-11-27T17:50:53.6268753Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy.sln 
+2020-11-27T17:50:53.6270252Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Utils.resx 
+2020-11-27T17:50:53.6271851Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AddFile_16x16.png 
+2020-11-27T17:50:53.6273540Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/PageSetup_32x32.png 
+2020-11-27T17:50:53.6275133Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/icon.png 
+2020-11-27T17:50:53.6277060Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/SplashScreen.scale-125.png 
+2020-11-27T17:50:53.6278706Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/app.manifest 
+2020-11-27T17:50:53.6280378Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square150x150Logo.scale-200.png 
+2020-11-27T17:50:53.6282352Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.Pdf.v19.1.Core.dll 
+2020-11-27T17:50:53.6284127Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/WhatsNewForm.resx 
+2020-11-27T17:50:53.6285708Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/JsonVisualizer.jpg 
+2020-11-27T17:50:53.6287384Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/SmallTile.scale-200.png 
+2020-11-27T17:50:53.6289287Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/UnixTimeConverter.resx 
+2020-11-27T17:50:53.6291109Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/RecentFolders16x16.png 
+2020-11-27T17:50:53.6292727Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/AutoUpdater.jpg 
+2020-11-27T17:50:53.6294193Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/Ribbon2.jpg 
+2020-11-27T17:50:53.6295703Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/RibbonFormMain.resx 
+2020-11-27T17:50:53.6297237Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/Analogy2.png 
+2020-11-27T17:50:53.6298832Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/SingleMasterFilter_32x32.png 
+2020-11-27T17:50:53.6300631Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square150x150Logo.scale-400.png 
+2020-11-27T17:50:53.6302354Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AnalogyRSS.jpg 
+2020-11-27T17:50:53.6304112Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/XtraUCWindowsEventLogs.resx 
+2020-11-27T17:50:53.6305886Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/extension16.png 
+2020-11-27T17:50:53.6307669Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.Data.v19.1.dll 
+2020-11-27T17:50:53.6309326Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/Ribbon.jpg 
+2020-11-27T17:50:53.6310802Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/Analogy_Background.xcf 
+2020-11-27T17:50:53.6312744Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net framework/DevExpress.XtraCharts.v19.1.Wizard.dll 
+2020-11-27T17:50:53.6314690Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Technology_32x32.png 
+2020-11-27T17:50:53.6316473Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraBars.v19.1.dll 
+2020-11-27T17:50:53.6318307Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Insert_32x32.png 
+2020-11-27T17:50:53.6319761Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/Analogy2.xcf 
+2020-11-27T17:50:53.6321322Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/BookmarkLog.resx 
+2020-11-27T17:50:53.6322937Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/ClearFilter_16x16.png 
+2020-11-27T17:50:53.6324892Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/ComponentDownloadInformationUC.resx 
+2020-11-27T17:50:53.6326731Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/None.jpg 
+2020-11-27T17:50:53.6328459Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/UserControls/FilesOperationsUC.resx 
+2020-11-27T17:50:53.6330595Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraCharts.v19.1.Wizard.dll 
+2020-11-27T17:50:53.6332497Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Integer.jpg 
+2020-11-27T17:50:53.6334048Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/TimeSpan.jpg 
+2020-11-27T17:50:53.6335653Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Assets/AnalogyBanner512x512.jpg 
+2020-11-27T17:50:53.6337247Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Open2_32x32.png 
+2020-11-27T17:50:53.6338911Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Forms/XtraFormClientServer.resx 
+2020-11-27T17:50:53.6340713Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Wide310x150Logo.scale-125.png 
+2020-11-27T17:50:53.6342412Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/RecentlyUse_16x16.png 
+2020-11-27T17:50:53.6343997Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Properties/licenses.licx 
+2020-11-27T17:50:53.6345609Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/jsonfile32x32.png 
+2020-11-27T17:50:53.6347512Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/Square44x44Logo.altform-unplated_targetsize-32.png 
+2020-11-27T17:50:53.6349496Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/AnalogyWindows128x128.png 
+2020-11-27T17:50:53.6351193Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/extension32.png 
+2020-11-27T17:50:53.6352864Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Installer/Images/LargeTile.scale-125.png 
+2020-11-27T17:50:53.6354540Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/ServerMode_32x32.png 
+2020-11-27T17:50:53.6356067Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/Info_16x16.png 
+2020-11-27T17:50:53.6357971Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraTreeList.v19.1.dll 
+2020-11-27T17:50:53.6359808Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/Resources/iconLight.png 
+2020-11-27T17:50:53.6361691Z 11/27 17:50:53 [34mINFO [0;39m [36mc.c.a.c.utils.LanguagesHelper:16[0;39m - No language found for Analogy/DevExpress/.net core/DevExpress.XtraPrinting.v19.1.dll 
+2020-11-27T17:50:54.1738524Z 11/27 17:50:54 [31mWARN [0;39m [36mc.c.a.core.tools.ToolCollector:169[0;39m - Some tools from remote configuration could not be found locally 
+2020-11-27T17:50:54.3484847Z 11/27 17:50:54 [39mDEBUG[0;39m [36mCodacyPlugins:17[0;39m - codacy/codacy-metrics-sonar-csharp:0.1.6 doesn't exist locally. 
+2020-11-27T17:50:54.3489741Z 11/27 17:50:54 [34mINFO [0;39m [36mCodacyPlugins:26[0;39m - Verifying if docker image codacy/codacy-metrics-sonar-csharp:0.1.6 exists locally. took 58ms 
+2020-11-27T17:50:59.3974505Z 11/27 17:50:59 [34mINFO [0;39m [36mCodacyPlugins:26[0;39m - Pulling docker image codacy/codacy-metrics-sonar-csharp:0.1.6. took 5045ms 
+2020-11-27T17:51:08.2426258Z 11/27 17:51:08 [34mINFO [0;39m [36mCodacyPlugins:26[0;39m - Running docker image codacy/codacy-metrics-sonar-csharp:0.1.6. took 8844ms 
+2020-11-27T17:51:08.3751586Z 11/27 17:51:08 [34mINFO [0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:48[0;39m - Completed metrics for metrics with 175 results 
+2020-11-27T17:51:08.4260201Z 11/27 17:51:08 [39mDEBUG[0;39m [36mCodacyPlugins:17[0;39m - codacy/codacy-duplication-pmdcpd:2.0.145 doesn't exist locally. 
+2020-11-27T17:51:08.4265012Z 11/27 17:51:08 [34mINFO [0;39m [36mCodacyPlugins:26[0;39m - Verifying if docker image codacy/codacy-duplication-pmdcpd:2.0.145 exists locally. took 39ms 
+2020-11-27T17:51:09.9852219Z 11/27 17:51:09 [34mINFO [0;39m [36mCodacyPlugins:26[0;39m - Pulling docker image codacy/codacy-duplication-pmdcpd:2.0.145. took 1548ms 
+2020-11-27T17:51:13.6485199Z 11/27 17:51:13 [34mINFO [0;39m [36mCodacyPlugins:26[0;39m - Running docker image codacy/codacy-duplication-pmdcpd:2.0.145. took 3669ms 
+2020-11-27T17:51:13.7145337Z 11/27 17:51:13 [34mINFO [0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:66[0;39m - Completed duplication for duplication with 256 results 
+2020-11-27T17:51:13.7681696Z 11/27 17:51:13 [39mDEBUG[0;39m [36mCodacyPlugins:17[0;39m - codacy/codacy-metrics-cloc:0.2.4 doesn't exist locally. 
+2020-11-27T17:51:13.7690681Z 11/27 17:51:13 [34mINFO [0;39m [36mCodacyPlugins:26[0;39m - Verifying if docker image codacy/codacy-metrics-cloc:0.2.4 exists locally. took 49ms 
+2020-11-27T17:51:16.4892963Z 11/27 17:51:16 [34mINFO [0;39m [36mCodacyPlugins:26[0;39m - Pulling docker image codacy/codacy-metrics-cloc:0.2.4. took 2717ms 
+2020-11-27T17:51:20.4656973Z 11/27 17:51:20 [34mINFO [0;39m [36mCodacyPlugins:26[0;39m - Running docker image codacy/codacy-metrics-cloc:0.2.4. took 3966ms 
+2020-11-27T17:51:20.4948928Z 11/27 17:51:20 [34mINFO [0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:48[0;39m - Completed metrics for metrics with 175 results 
+2020-11-27T17:51:20.5075803Z 11/27 17:51:20 [34mINFO [0;39m [36mc.c.a.c.a.AnalyseExecutor:192[0;39m - Could not find local extra configuration for sonarscharp 
+2020-11-27T17:51:20.5120630Z 11/27 17:51:20 [34mINFO [0;39m [36mc.c.a.c.a.AnalyseExecutor:177[0;39m - Preparing to run sonarscharp with remote configuration 
+2020-11-27T17:51:20.5194776Z 11/27 17:51:20 [34mINFO [0;39m [36mc.c.analysis.core.tools.Tool:101[0;39m - Using the root directory /home/runner/work/Analogy.LogViewer/Analogy.LogViewer to run 
+2020-11-27T17:51:20.6336621Z 11/27 17:51:20 [39mDEBUG[0;39m [36mCodacyPlugins:17[0;39m - codacy/codacy-sonar-csharp:4.3.1 doesn't exist locally. 
+2020-11-27T17:51:20.6349356Z 11/27 17:51:20 [34mINFO [0;39m [36mCodacyPlugins:26[0;39m - Verifying if docker image codacy/codacy-sonar-csharp:4.3.1 exists locally. took 43ms 
+2020-11-27T17:51:26.0934243Z 11/27 17:51:26 [34mINFO [0;39m [36mCodacyPlugins:26[0;39m - Pulling docker image codacy/codacy-sonar-csharp:4.3.1. took 5454ms 
+2020-11-27T17:54:47.2178275Z 11/27 17:54:47 [34mINFO [0;39m [36mCodacyPlugins:26[0;39m - Running docker image codacy/codacy-sonar-csharp:4.3.1. took 201125ms 
+2020-11-27T17:54:47.3576920Z 11/27 17:54:47 [34mINFO [0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:28[0;39m - Completed analysis for sonarscharp with 374 results 
+2020-11-27T17:54:47.8852674Z ##[group]Run github/codeql-action/upload-sarif@v1
+2020-11-27T17:54:47.8853257Z with:
+2020-11-27T17:54:47.8853697Z   sarif_file: results.sarif
+2020-11-27T17:54:47.8854481Z   checkout_path: /home/runner/work/Analogy.LogViewer/Analogy.LogViewer
+2020-11-27T17:54:47.8855578Z   token: ***
+2020-11-27T17:54:47.8855962Z   matrix: null
+2020-11-27T17:54:47.8856324Z env:
+2020-11-27T17:54:47.8856773Z   CODACY_ANALYSIS_CLI_VERSION: 4.0.0
+2020-11-27T17:54:47.8857773Z   CLI_SCRIPT_PATH: /home/runner/work/_actions/codacy/codacy-analysis-cli-action/1.1.0/codacy-analysis-cli.sh
+2020-11-27T17:54:47.8858810Z ##[endgroup]
+2020-11-27T17:54:48.4855684Z Uploading sarif files: ["results.sarif"]
+2020-11-27T17:54:48.7441504Z Uploading results
+2020-11-27T17:54:49.0335216Z Successfully uploaded results
+2020-11-27T17:54:49.2128898Z Post job cleanup.
+2020-11-27T17:54:49.3143555Z [command]/usr/bin/git version
+2020-11-27T17:54:49.3207958Z git version 2.29.2
+2020-11-27T17:54:49.3241897Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2020-11-27T17:54:49.3285219Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+2020-11-27T17:54:49.3557897Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2020-11-27T17:54:49.3594740Z http.https://github.com/.extraheader
+2020-11-27T17:54:49.3603755Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2020-11-27T17:54:49.3645392Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+2020-11-27T17:54:49.3967612Z Cleaning up orphan processes
