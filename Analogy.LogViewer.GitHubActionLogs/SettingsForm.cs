@@ -1,10 +1,11 @@
 ﻿using Analogy.Interfaces;
 using Analogy.LogViewer.GitHubActionLogs.Managers;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Analogy.LogViewer.GitHubActionLogs
 {
-    public partial class SettingsForm : Form
+    public partial class SettingsForm : UserControl
     {
         public AnalogyLogLevel CurrentLogLevel { get; set; }
         public string? SelectedTextItem { get; set; }
@@ -21,7 +22,7 @@ namespace Analogy.LogViewer.GitHubActionLogs
             lblCurrentLogLevel.Text = $"Add new Text for log level {CurrentLogLevel}:";
             SelectedTextItem = null;
             lblSelectedText.Text = "N/A";
-            listTextsForLogLevel.DataSource = Settings.LogLevelText[CurrentLogLevel];
+            listTextsForLogLevel.DataSource = Settings.LogLevelText[CurrentLogLevel].ToList();
 
         }
 
@@ -38,7 +39,7 @@ namespace Analogy.LogViewer.GitHubActionLogs
 
             }
 
-            listboxLogLevel.DataSource = Settings.LogLevelText.Keys;
+            listboxLogLevel.DataSource = Settings.LogLevelText.Keys.ToList();
 
         }
 
@@ -50,7 +51,7 @@ namespace Analogy.LogViewer.GitHubActionLogs
             }
 
             Settings.LogLevelText[CurrentLogLevel].Remove(SelectedTextItem);
-            listTextsForLogLevel.DataSource = Settings.LogLevelText[CurrentLogLevel];
+            listTextsForLogLevel.DataSource = Settings.LogLevelText[CurrentLogLevel].ToList();
         }
 
         private void btnAdd_Click(object sender, System.EventArgs e)
@@ -60,6 +61,8 @@ namespace Analogy.LogViewer.GitHubActionLogs
                 return;
             }
             Settings.LogLevelText[CurrentLogLevel].Add(textForLog.Text);
+            listTextsForLogLevel.DataSource = Settings.LogLevelText[CurrentLogLevel].ToList();
+
         }
     }
 }
