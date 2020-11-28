@@ -16,7 +16,7 @@ namespace Analogy.LogViewer.GitHubActionLogs.IAnalogy
         public override string? OptionalTitle { get; set; } = "GitHub Actions Log Parser";
         public override string FileOpenDialogFilters { get; set; } = "txt files (*.txt)|*.txt";
         public override IEnumerable<string> SupportFormats { get; set; } = new List<string> { "*.txt" };
-        public override string? InitialFolderFullPath { get; set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), @"AppData\Local\Microsoft\PowerToys\PowerToys Run\Logs");
+        public override string? InitialFolderFullPath { get; set; } = null;
         public override Guid Id { get; set; } = new Guid("3cb374e9-42a5-4e4c-a586-1561bf13070b");
         private GitHubActionPlainTextLogFileLoader parser;
 
