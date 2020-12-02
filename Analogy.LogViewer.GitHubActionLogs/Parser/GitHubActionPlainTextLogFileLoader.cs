@@ -57,9 +57,13 @@ namespace Analogy.LogViewer.GitHubActionLogs.Parser
                             else if (entry != null)
                             {
                                 if (entry.Text == "")
+                                {
                                     entry.Text = line;
+                                }
                                 else
+                                {
                                     entry.Text += Environment.NewLine + line;
+                                }
                             }
                         }
                     }
