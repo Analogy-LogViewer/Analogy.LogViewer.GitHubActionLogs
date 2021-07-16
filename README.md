@@ -1,7 +1,6 @@
 # Analogy.LogViewer.GithubActionLogs   <img src="./Assets/AnalogyGitHubActionsLogs.png" align="right" width="155px" height="155px">
 
 [![Gitter](https://badges.gitter.im/Analogy-LogViewer/community.svg)](https://gitter.im/Analogy-LogViewer/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) ![.NET Core Desktop](https://github.com/Analogy-LogViewer/Analogy.LogViewer.GitHubActionLogs/workflows/.NET%20Core%20Desktop/badge.svg)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=Analogy-LogViewer/Analogy.LogViewer.GitHubActionLogs)](https://dependabot.com)
 <a href="https://github.com/Analogy-LogViewer/Analogy.LogViewer.GitHubActionLogs/issues">
     <img src="https://img.shields.io/github/issues/Analogy-LogViewer/Analogy.LogViewer.GitHubActionLogs" alt="Issues" />
 </a>
