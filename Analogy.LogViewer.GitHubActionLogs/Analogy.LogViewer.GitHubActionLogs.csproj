@@ -18,7 +18,7 @@
 		<PackageReleaseNotes>Analogy GitHubAction Logs parser</PackageReleaseNotes>
 		<PackageIconUrl />
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>0.2.0</Version>
+		<Version>0.2.1</Version>
 		<Company>Analogy.LogViewer</Company>
 		<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
 		<PackageIcon>AnalogyGitHubActionsLogs.png</PackageIcon>
