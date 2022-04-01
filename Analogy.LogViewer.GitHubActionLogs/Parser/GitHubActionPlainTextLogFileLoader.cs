@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Analogy.Interfaces.DataTypes;
 
 namespace Analogy.LogViewer.GitHubActionLogs.Parser
 {
@@ -34,6 +35,7 @@ namespace Analogy.LogViewer.GitHubActionLogs.Parser
                 {
                     using (var reader = new StreamReader(stream))
                     {
+                        long count = 0;
                         while (!reader.EndOfStream)
                         {
                             var line = await reader.ReadLineAsync();
@@ -43,6 +45,9 @@ namespace Analogy.LogViewer.GitHubActionLogs.Parser
                                 if (entry != null)
                                 {
                                     messages.Add(entry);
+                                    count++;
+                                    messagesHandler.ReportFileReadProgress(new AnalogyFileReadProgress(AnalogyFileReadProgressType.Incremental, 1, count, count));
+
                                 }
 
                                 string data = line.Substring(indexOfFirstSpace + 1);
